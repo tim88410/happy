@@ -1,0 +1,911 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="happyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tActivity">
+    <Key>
+      <PropertyRef Name="fActivityId" />
+    </Key>
+    <Property Name="fActivityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fCreatorId" Type="int" Nullable="false" />
+    <Property Name="fGroupId" Type="int" />
+    <Property Name="fTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="fCreatetime" Type="datetime" Nullable="false" />
+    <Property Name="fStarttime" Type="datetime" Nullable="false" />
+    <Property Name="fEndtime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tActivityMember">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fActivityId" Type="int" Nullable="false" />
+    <Property Name="fMemberId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tAd">
+    <Key>
+      <PropertyRef Name="fAdId" />
+    </Key>
+    <Property Name="fAdId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fProductId" Type="int" Nullable="false" />
+    <Property Name="fSupplierId" Type="int" Nullable="false" />
+    <Property Name="fDescription" Type="nvarchar(max)" />
+    <Property Name="fPicture" Type="nvarchar(max)" />
+    <Property Name="fStarttime" Type="datetime" Nullable="false" />
+    <Property Name="fEndtime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tCategory">
+    <Key>
+      <PropertyRef Name="fCatrgoryId" />
+    </Key>
+    <Property Name="fCatrgoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fCategoryname" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tChildcomment">
+    <Key>
+      <PropertyRef Name="fChildcommentId" />
+    </Key>
+    <Property Name="fChildcommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fChilduserId" Type="int" />
+    <Property Name="fChilddescription" Type="nvarchar(max)" />
+    <Property Name="fChildtime" Type="datetime" />
+    <Property Name="fParentcommentId" Type="int" />
+  </EntityType>
+  <EntityType Name="tFavoritepost">
+    <Key>
+      <PropertyRef Name="fMemberId" />
+      <PropertyRef Name="fPostId" />
+    </Key>
+    <Property Name="fMemberId" Type="int" Nullable="false" />
+    <Property Name="fPostId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tFollow">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fBefollowed" Type="int" Nullable="false" />
+    <Property Name="fFollower" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tFriendinvite">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fFriendId" Type="int" Nullable="false" />
+    <Property Name="fBefriendId" Type="int" Nullable="false" />
+    <Property Name="fStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="tGroup">
+    <Key>
+      <PropertyRef Name="fGroupId" />
+    </Key>
+    <Property Name="fGroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fCreatorId" Type="int" Nullable="false" />
+    <Property Name="fGroupName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="fGrouppic" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tGroupdetail">
+    <Key>
+      <PropertyRef Name="fGroupId" />
+      <PropertyRef Name="fMemberId" />
+    </Key>
+    <Property Name="fGroupId" Type="int" Nullable="false" />
+    <Property Name="fMemberId" Type="int" Nullable="false" />
+    <Property Name="fManager" Type="bit" />
+  </EntityType>
+  <EntityType Name="tManager">
+    <Key>
+      <PropertyRef Name="fManagerId" />
+    </Key>
+    <Property Name="fManagerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fAccount" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fPassword_Salt" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fPassword_Hash" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tMember">
+    <Key>
+      <PropertyRef Name="fMemberId" />
+    </Key>
+    <Property Name="fMemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="fName" Type="nvarchar" MaxLength="50" />
+    <Property Name="fPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="fPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="fAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="fCity" Type="nvarchar" MaxLength="10" />
+    <Property Name="fRegion" Type="nvarchar" MaxLength="10" />
+    <Property Name="fPostalcode" Type="int" />
+    <Property Name="fCountry" Type="nvarchar" MaxLength="10" />
+    <Property Name="fFax" Type="nvarchar" MaxLength="20" />
+    <Property Name="fFirstname" Type="nvarchar" MaxLength="10" />
+    <Property Name="fLastname" Type="nvarchar" MaxLength="10" />
+    <Property Name="fUsername" Type="nvarchar" MaxLength="50" />
+    <Property Name="fIdPhoto" Type="nvarchar(max)" />
+    <Property Name="fCoverPhoto" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tMessage">
+    <Key>
+      <PropertyRef Name="fMessageId" />
+    </Key>
+    <Property Name="fMessageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fSenderId" Type="int" Nullable="false" />
+    <Property Name="fReciverId" Type="int" Nullable="false" />
+    <Property Name="fDate" Type="datetime" Nullable="false" />
+    <Property Name="fDescription" Type="nvarchar(max)" />
+    <Property Name="fPicture" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tNotify">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fNotifyfromId" Type="int" />
+    <Property Name="fMemberId" Type="int" Nullable="false" />
+    <Property Name="fDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="fHasread" Type="bit" Nullable="false" />
+    <Property Name="fNotifytime" Type="datetime" Nullable="false" />
+    <Property Name="fNotificate" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tOrderdetail">
+    <Key>
+      <PropertyRef Name="fOrderId" />
+      <PropertyRef Name="fProductId" />
+    </Key>
+    <Property Name="fOrderId" Type="int" Nullable="false" />
+    <Property Name="fProductId" Type="int" Nullable="false" />
+    <Property Name="fQuantity" Type="int" Nullable="false" />
+    <Property Name="fUnitPrice" Type="int" />
+  </EntityType>
+  <EntityType Name="tOrders">
+    <Key>
+      <PropertyRef Name="fOrderId" />
+    </Key>
+    <Property Name="fOrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fOrderdate" Type="datetime" Nullable="false" />
+    <Property Name="fCustomerId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tParentcomment">
+    <Key>
+      <PropertyRef Name="fCommentId" />
+    </Key>
+    <Property Name="fCommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fPostId" Type="int" Nullable="false" />
+    <Property Name="fDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="fMemberId" Type="int" Nullable="false" />
+    <Property Name="fTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tPMSupplier">
+    <Key>
+      <PropertyRef Name="fId" />
+    </Key>
+    <Property Name="fId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fOrderId" Type="int" Nullable="false" />
+    <Property Name="fProductId" Type="int" Nullable="false" />
+    <Property Name="fMessage" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tPost">
+    <Key>
+      <PropertyRef Name="fPostId" />
+    </Key>
+    <Property Name="fPostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fMemberId" Type="int" Nullable="false" />
+    <Property Name="fGroupId" Type="int" />
+    <Property Name="fTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="fDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="fPosttime" Type="datetime" Nullable="false" />
+    <Property Name="fPersonal" Type="bit" />
+    <Property Name="fEarn" Type="bit" />
+    <Property Name="fHasImage" Type="bit" />
+  </EntityType>
+  <EntityType Name="tPostliked">
+    <Key>
+      <PropertyRef Name="fLikedId" />
+    </Key>
+    <Property Name="fLikedId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fPostId" Type="int" Nullable="false" />
+    <Property Name="fMemberId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tProduct">
+    <Key>
+      <PropertyRef Name="fProductId" />
+    </Key>
+    <Property Name="fProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fSupplierId" Type="int" Nullable="false" />
+    <Property Name="fCategoryId" Type="int" Nullable="false" />
+    <Property Name="fProductdescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="fProductpicture" Type="varchar(max)" />
+    <Property Name="fProductinstock" Type="int" Nullable="false" />
+    <Property Name="fBrandId" Type="int" />
+    <Property Name="fUnitprice" Type="int" Nullable="false" />
+    <Property Name="fProductsize" Type="nvarchar" MaxLength="50" />
+    <Property Name="fProductlaunch" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tReport_Blog">
+    <Key>
+      <PropertyRef Name="fReportId" />
+    </Key>
+    <Property Name="fReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fMemberId" Type="int" Nullable="false" />
+    <Property Name="fPostId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tSupplier">
+    <Key>
+      <PropertyRef Name="fSupplierId" />
+    </Key>
+    <Property Name="fSupplierId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fMemberId" Type="int" />
+    <Property Name="fName" Type="nvarchar" MaxLength="50" />
+    <Property Name="fStatus" Type="bit" />
+    <Property Name="fJointime" Type="datetime" />
+    <Property Name="fDiscount" Type="money" />
+    <Property Name="fGrade" Type="float" />
+    <Property Name="fDescription" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tTag">
+    <Key>
+      <PropertyRef Name="fTagId" />
+    </Key>
+    <Property Name="fTagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fDescription" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tTagdetails">
+    <Key>
+      <PropertyRef Name="fTagId" />
+      <PropertyRef Name="fPostId" />
+    </Key>
+    <Property Name="fTagId" Type="int" Nullable="false" />
+    <Property Name="fPostId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tActivity_tGroup">
+    <End Role="tGroup" Type="Self.tGroup" Multiplicity="0..1" />
+    <End Role="tActivity" Type="Self.tActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tGroup">
+        <PropertyRef Name="fGroupId" />
+      </Principal>
+      <Dependent Role="tActivity">
+        <PropertyRef Name="fGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tActivity_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tActivity" Type="Self.tActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tActivity">
+        <PropertyRef Name="fCreatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tActivityMember_tActivity1">
+    <End Role="tActivity" Type="Self.tActivity" Multiplicity="1" />
+    <End Role="tActivityMember" Type="Self.tActivityMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tActivity">
+        <PropertyRef Name="fActivityId" />
+      </Principal>
+      <Dependent Role="tActivityMember">
+        <PropertyRef Name="fActivityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tActivityMember_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tActivityMember" Type="Self.tActivityMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tActivityMember">
+        <PropertyRef Name="fMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tAd_tProduct">
+    <End Role="tProduct" Type="Self.tProduct" Multiplicity="1" />
+    <End Role="tAd" Type="Self.tAd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tProduct">
+        <PropertyRef Name="fProductId" />
+      </Principal>
+      <Dependent Role="tAd">
+        <PropertyRef Name="fProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tAd_tSupplier">
+    <End Role="tSupplier" Type="Self.tSupplier" Multiplicity="1" />
+    <End Role="tAd" Type="Self.tAd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tSupplier">
+        <PropertyRef Name="fSupplierId" />
+      </Principal>
+      <Dependent Role="tAd">
+        <PropertyRef Name="fSupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tChildcomment_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="0..1" />
+    <End Role="tChildcomment" Type="Self.tChildcomment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tChildcomment">
+        <PropertyRef Name="fChilduserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tChildcomment_tParentcomment">
+    <End Role="tParentcomment" Type="Self.tParentcomment" Multiplicity="0..1" />
+    <End Role="tChildcomment" Type="Self.tChildcomment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tParentcomment">
+        <PropertyRef Name="fCommentId" />
+      </Principal>
+      <Dependent Role="tChildcomment">
+        <PropertyRef Name="fParentcommentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tComment_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tParentcomment" Type="Self.tParentcomment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tParentcomment">
+        <PropertyRef Name="fMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tComment_tPost">
+    <End Role="tPost" Type="Self.tPost" Multiplicity="1" />
+    <End Role="tParentcomment" Type="Self.tParentcomment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tPost">
+        <PropertyRef Name="fPostId" />
+      </Principal>
+      <Dependent Role="tParentcomment">
+        <PropertyRef Name="fPostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tFavoritepost_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tFavoritepost" Type="Self.tFavoritepost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tFavoritepost">
+        <PropertyRef Name="fMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tFavoritepost_tPost">
+    <End Role="tPost" Type="Self.tPost" Multiplicity="1" />
+    <End Role="tFavoritepost" Type="Self.tFavoritepost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tPost">
+        <PropertyRef Name="fPostId" />
+      </Principal>
+      <Dependent Role="tFavoritepost">
+        <PropertyRef Name="fPostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tFollow_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tFollow" Type="Self.tFollow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tFollow">
+        <PropertyRef Name="fBefollowed" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tFollow_tMember1">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tFollow" Type="Self.tFollow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tFollow">
+        <PropertyRef Name="fFollower" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tFriendinvite_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tFriendinvite" Type="Self.tFriendinvite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tFriendinvite">
+        <PropertyRef Name="fFriendId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tFriendinvite_tMember1">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tFriendinvite" Type="Self.tFriendinvite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tFriendinvite">
+        <PropertyRef Name="fBefriendId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tGroup_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tGroup" Type="Self.tGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tGroup">
+        <PropertyRef Name="fCreatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tGroupdetail_tGroup">
+    <End Role="tGroup" Type="Self.tGroup" Multiplicity="1" />
+    <End Role="tGroupdetail" Type="Self.tGroupdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tGroup">
+        <PropertyRef Name="fGroupId" />
+      </Principal>
+      <Dependent Role="tGroupdetail">
+        <PropertyRef Name="fGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tGroupdetail_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tGroupdetail" Type="Self.tGroupdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tGroupdetail">
+        <PropertyRef Name="fMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tMessage_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tMessage" Type="Self.tMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tMessage">
+        <PropertyRef Name="fSenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tMessage_tMember1">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tMessage" Type="Self.tMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tMessage">
+        <PropertyRef Name="fReciverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tNotify_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tNotify" Type="Self.tNotify" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tNotify">
+        <PropertyRef Name="fMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tNotify_tMember1">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tNotify" Type="Self.tNotify" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tNotify">
+        <PropertyRef Name="fMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tOrderdetail_tOrders">
+    <End Role="tOrders" Type="Self.tOrders" Multiplicity="1" />
+    <End Role="tOrderdetail" Type="Self.tOrderdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tOrders">
+        <PropertyRef Name="fOrderId" />
+      </Principal>
+      <Dependent Role="tOrderdetail">
+        <PropertyRef Name="fOrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tOrderdetail_tProduct">
+    <End Role="tProduct" Type="Self.tProduct" Multiplicity="1" />
+    <End Role="tOrderdetail" Type="Self.tOrderdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tProduct">
+        <PropertyRef Name="fProductId" />
+      </Principal>
+      <Dependent Role="tOrderdetail">
+        <PropertyRef Name="fProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tParentcomment_tPost">
+    <End Role="tPost" Type="Self.tPost" Multiplicity="1" />
+    <End Role="tParentcomment" Type="Self.tParentcomment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tPost">
+        <PropertyRef Name="fPostId" />
+      </Principal>
+      <Dependent Role="tParentcomment">
+        <PropertyRef Name="fPostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tPMSupplier_tOrders">
+    <End Role="tOrders" Type="Self.tOrders" Multiplicity="1" />
+    <End Role="tPMSupplier" Type="Self.tPMSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tOrders">
+        <PropertyRef Name="fOrderId" />
+      </Principal>
+      <Dependent Role="tPMSupplier">
+        <PropertyRef Name="fOrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tPMSupplier_tProduct">
+    <End Role="tProduct" Type="Self.tProduct" Multiplicity="1" />
+    <End Role="tPMSupplier" Type="Self.tPMSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tProduct">
+        <PropertyRef Name="fProductId" />
+      </Principal>
+      <Dependent Role="tPMSupplier">
+        <PropertyRef Name="fProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tPost_tGroup">
+    <End Role="tGroup" Type="Self.tGroup" Multiplicity="0..1" />
+    <End Role="tPost" Type="Self.tPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tGroup">
+        <PropertyRef Name="fGroupId" />
+      </Principal>
+      <Dependent Role="tPost">
+        <PropertyRef Name="fGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tPost_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tPost" Type="Self.tPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tPost">
+        <PropertyRef Name="fMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tPostliked_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tPostliked" Type="Self.tPostliked" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tPostliked">
+        <PropertyRef Name="fMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tPostliked_tPost">
+    <End Role="tPost" Type="Self.tPost" Multiplicity="1" />
+    <End Role="tPostliked" Type="Self.tPostliked" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tPost">
+        <PropertyRef Name="fPostId" />
+      </Principal>
+      <Dependent Role="tPostliked">
+        <PropertyRef Name="fPostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tProduct_tCategory">
+    <End Role="tCategory" Type="Self.tCategory" Multiplicity="1" />
+    <End Role="tProduct" Type="Self.tProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tCategory">
+        <PropertyRef Name="fCatrgoryId" />
+      </Principal>
+      <Dependent Role="tProduct">
+        <PropertyRef Name="fCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tProduct_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tProduct" Type="Self.tProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tProduct">
+        <PropertyRef Name="fSupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tProduct_tSupplier">
+    <End Role="tSupplier" Type="Self.tSupplier" Multiplicity="1" />
+    <End Role="tProduct" Type="Self.tProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tSupplier">
+        <PropertyRef Name="fSupplierId" />
+      </Principal>
+      <Dependent Role="tProduct">
+        <PropertyRef Name="fSupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tReport_Blog_tMember">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tReport_Blog" Type="Self.tReport_Blog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberId" />
+      </Principal>
+      <Dependent Role="tReport_Blog">
+        <PropertyRef Name="fMemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tReport_Blog_tPost">
+    <End Role="tPost" Type="Self.tPost" Multiplicity="1" />
+    <End Role="tReport_Blog" Type="Self.tReport_Blog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tPost">
+        <PropertyRef Name="fPostId" />
+      </Principal>
+      <Dependent Role="tReport_Blog">
+        <PropertyRef Name="fPostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tTagdetails_tPost">
+    <End Role="tPost" Type="Self.tPost" Multiplicity="1" />
+    <End Role="tTagdetails" Type="Self.tTagdetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tPost">
+        <PropertyRef Name="fPostId" />
+      </Principal>
+      <Dependent Role="tTagdetails">
+        <PropertyRef Name="fPostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tTagdetails_tTag">
+    <End Role="tTag" Type="Self.tTag" Multiplicity="1" />
+    <End Role="tTagdetails" Type="Self.tTagdetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tTag">
+        <PropertyRef Name="fTagId" />
+      </Principal>
+      <Dependent Role="tTagdetails">
+        <PropertyRef Name="fTagId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="happyModelStoreContainer">
+    <EntitySet Name="tActivity" EntityType="Self.tActivity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tActivityMember" EntityType="Self.tActivityMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tAd" EntityType="Self.tAd" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tCategory" EntityType="Self.tCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tChildcomment" EntityType="Self.tChildcomment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tFavoritepost" EntityType="Self.tFavoritepost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tFollow" EntityType="Self.tFollow" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tFriendinvite" EntityType="Self.tFriendinvite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tGroup" EntityType="Self.tGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tGroupdetail" EntityType="Self.tGroupdetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tManager" EntityType="Self.tManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tMember" EntityType="Self.tMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tMessage" EntityType="Self.tMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tNotify" EntityType="Self.tNotify" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tOrderdetail" EntityType="Self.tOrderdetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tOrders" EntityType="Self.tOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tParentcomment" EntityType="Self.tParentcomment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tPMSupplier" EntityType="Self.tPMSupplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tPost" EntityType="Self.tPost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tPostliked" EntityType="Self.tPostliked" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tProduct" EntityType="Self.tProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tReport_Blog" EntityType="Self.tReport_Blog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tSupplier" EntityType="Self.tSupplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tTag" EntityType="Self.tTag" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tTagdetails" EntityType="Self.tTagdetails" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tActivity_tGroup" Association="Self.FK_tActivity_tGroup">
+      <End Role="tGroup" EntitySet="tGroup" />
+      <End Role="tActivity" EntitySet="tActivity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tActivity_tMember" Association="Self.FK_tActivity_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tActivity" EntitySet="tActivity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tActivityMember_tActivity1" Association="Self.FK_tActivityMember_tActivity1">
+      <End Role="tActivity" EntitySet="tActivity" />
+      <End Role="tActivityMember" EntitySet="tActivityMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tActivityMember_tMember" Association="Self.FK_tActivityMember_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tActivityMember" EntitySet="tActivityMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tAd_tProduct" Association="Self.FK_tAd_tProduct">
+      <End Role="tProduct" EntitySet="tProduct" />
+      <End Role="tAd" EntitySet="tAd" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tAd_tSupplier" Association="Self.FK_tAd_tSupplier">
+      <End Role="tSupplier" EntitySet="tSupplier" />
+      <End Role="tAd" EntitySet="tAd" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tChildcomment_tMember" Association="Self.FK_tChildcomment_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tChildcomment" EntitySet="tChildcomment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tChildcomment_tParentcomment" Association="Self.FK_tChildcomment_tParentcomment">
+      <End Role="tParentcomment" EntitySet="tParentcomment" />
+      <End Role="tChildcomment" EntitySet="tChildcomment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tComment_tMember" Association="Self.FK_tComment_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tParentcomment" EntitySet="tParentcomment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tComment_tPost" Association="Self.FK_tComment_tPost">
+      <End Role="tPost" EntitySet="tPost" />
+      <End Role="tParentcomment" EntitySet="tParentcomment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tFavoritepost_tMember" Association="Self.FK_tFavoritepost_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tFavoritepost" EntitySet="tFavoritepost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tFavoritepost_tPost" Association="Self.FK_tFavoritepost_tPost">
+      <End Role="tPost" EntitySet="tPost" />
+      <End Role="tFavoritepost" EntitySet="tFavoritepost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tFollow_tMember" Association="Self.FK_tFollow_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tFollow" EntitySet="tFollow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tFollow_tMember1" Association="Self.FK_tFollow_tMember1">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tFollow" EntitySet="tFollow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tFriendinvite_tMember" Association="Self.FK_tFriendinvite_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tFriendinvite" EntitySet="tFriendinvite" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tFriendinvite_tMember1" Association="Self.FK_tFriendinvite_tMember1">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tFriendinvite" EntitySet="tFriendinvite" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tGroup_tMember" Association="Self.FK_tGroup_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tGroup" EntitySet="tGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tGroupdetail_tGroup" Association="Self.FK_tGroupdetail_tGroup">
+      <End Role="tGroup" EntitySet="tGroup" />
+      <End Role="tGroupdetail" EntitySet="tGroupdetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tGroupdetail_tMember" Association="Self.FK_tGroupdetail_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tGroupdetail" EntitySet="tGroupdetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tMessage_tMember" Association="Self.FK_tMessage_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tMessage" EntitySet="tMessage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tMessage_tMember1" Association="Self.FK_tMessage_tMember1">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tMessage" EntitySet="tMessage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tNotify_tMember" Association="Self.FK_tNotify_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tNotify" EntitySet="tNotify" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tNotify_tMember1" Association="Self.FK_tNotify_tMember1">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tNotify" EntitySet="tNotify" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tOrderdetail_tOrders" Association="Self.FK_tOrderdetail_tOrders">
+      <End Role="tOrders" EntitySet="tOrders" />
+      <End Role="tOrderdetail" EntitySet="tOrderdetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tOrderdetail_tProduct" Association="Self.FK_tOrderdetail_tProduct">
+      <End Role="tProduct" EntitySet="tProduct" />
+      <End Role="tOrderdetail" EntitySet="tOrderdetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tParentcomment_tPost" Association="Self.FK_tParentcomment_tPost">
+      <End Role="tPost" EntitySet="tPost" />
+      <End Role="tParentcomment" EntitySet="tParentcomment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tPMSupplier_tOrders" Association="Self.FK_tPMSupplier_tOrders">
+      <End Role="tOrders" EntitySet="tOrders" />
+      <End Role="tPMSupplier" EntitySet="tPMSupplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tPMSupplier_tProduct" Association="Self.FK_tPMSupplier_tProduct">
+      <End Role="tProduct" EntitySet="tProduct" />
+      <End Role="tPMSupplier" EntitySet="tPMSupplier" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tPost_tGroup" Association="Self.FK_tPost_tGroup">
+      <End Role="tGroup" EntitySet="tGroup" />
+      <End Role="tPost" EntitySet="tPost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tPost_tMember" Association="Self.FK_tPost_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tPost" EntitySet="tPost" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tPostliked_tMember" Association="Self.FK_tPostliked_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tPostliked" EntitySet="tPostliked" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tPostliked_tPost" Association="Self.FK_tPostliked_tPost">
+      <End Role="tPost" EntitySet="tPost" />
+      <End Role="tPostliked" EntitySet="tPostliked" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tProduct_tCategory" Association="Self.FK_tProduct_tCategory">
+      <End Role="tCategory" EntitySet="tCategory" />
+      <End Role="tProduct" EntitySet="tProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tProduct_tMember" Association="Self.FK_tProduct_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tProduct" EntitySet="tProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tProduct_tSupplier" Association="Self.FK_tProduct_tSupplier">
+      <End Role="tSupplier" EntitySet="tSupplier" />
+      <End Role="tProduct" EntitySet="tProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tReport_Blog_tMember" Association="Self.FK_tReport_Blog_tMember">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tReport_Blog" EntitySet="tReport_Blog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tReport_Blog_tPost" Association="Self.FK_tReport_Blog_tPost">
+      <End Role="tPost" EntitySet="tPost" />
+      <End Role="tReport_Blog" EntitySet="tReport_Blog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tTagdetails_tPost" Association="Self.FK_tTagdetails_tPost">
+      <End Role="tPost" EntitySet="tPost" />
+      <End Role="tTagdetails" EntitySet="tTagdetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tTagdetails_tTag" Association="Self.FK_tTagdetails_tTag">
+      <End Role="tTag" EntitySet="tTag" />
+      <End Role="tTagdetails" EntitySet="tTagdetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

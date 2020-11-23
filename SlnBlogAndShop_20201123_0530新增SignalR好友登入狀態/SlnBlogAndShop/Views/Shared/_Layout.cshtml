@@ -1,0 +1,309 @@
+﻿@using SlnBlogAndShop.Models
+@using SlnBlogAndShop.ViewModel
+@using prjBlog.Models
+@using prjBlog.ViewModel
+@{ 
+    List<Cnotify> notify = Session[CDictionary.comfirm] as List<Cnotify>;
+    int count= ViewBag.count;
+    TMember member = HttpContext.Current.Session[CDictionary.SK_LOGINED_USER] as TMember;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <style>
+        .pac-container {
+            z-index: 1051 !important;
+        }
+
+        .ui-autocomplete {
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: default;
+            height: 100px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        #upload-demo {
+            width: 250px;
+            height: 250px;
+            padding-bottom: 25px;
+        }
+    </style>
+    <link href="~/Content/Blog/main.min.css" rel="stylesheet" />
+
+    <link rel="icon" href="images/fav.png" type="image/png" sizes="16x16">
+    <link href="~/Content/Blog/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/Blog/style.css">
+    <link rel="stylesheet" href="~/Content/Blog/color.css">
+    <link href="~/Content/Blog/croppie.css" rel="stylesheet" />
+
+    <script src="https://kit.fontawesome.com/1cdd413fb3.js" crossorigin="anonymous"></script>
+    <script src="~/Scripts/Blog/jquery3.5.1.js"></script>
+    <script src="~/Scripts/Blog/bootstrap.js"></script>
+    <script src="~/Scripts/Blog/main.min.js"></script>
+    <script src="~/Scripts/Blog/script.js"></script>
+    <script src="~/Scripts/Blog/croppie.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts/CentralSignalR.js"></script>
+</head>
+<body>
+    <!--Navbar-->
+    <div class="topbar stick">
+        <div class="logo">
+            <a title="" href="bloggerIndex">
+                <img src="~/images/LOGO.PNG" style="height:50px" />SBlog
+            </a>
+        </div>
+        <div class="d-inline-block">
+            <div class="row">
+                <div class="col">
+                    <a href="~/Shop/Index">SHOP</a>
+                </div>
+                <div class="col">
+                    <a href="personalPage">BLOG</a>
+                </div>
+            </div>
+        </div>
+        <div class="top-area">
+            <ul class="setting-area">
+                <li>
+                    <a href="#" title="搜尋" data-ripple=""><i class="fas fa-search"></i></a>
+                    <div class="dropdowns form-search border">
+                        <form method="post" class="custom-control-inline">
+                            <select>
+                                <option>內文</option>
+                                <option>標籤</option>
+                                <option>用戶</option>
+                            </select>
+                            <input type="text" placeholder="搜尋">
+                            <button data-ripple><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" title="首頁" data-ripple=""><i class="fas fa-home" id="brokenHome"></i></a>
+                </li>
+                <li>
+                    <a href="#" title="通知" data-ripple="">
+                        <i id="notifyread" class="fas fa-bullhorn"></i><span id="count">@count</span>
+                    </a>
+                    <div class="dropdowns">
+                        <span>通知</span>
+                        <ul class="drops-menu">
+                            @foreach (var item in notify)
+                            {
+                                <li category="friend">
+                                    <a href="notifications.html" title="" data-toggle="modal" data-target="#friendModal">
+                                        <img src="~/images/IdPhoto/@item.fidphoto" alt="">
+                                        <div class="mesg-meta">
+                                            <h6>@item.fname</h6>
+                                            <span>@item.fdescription</span>
+                                            <i>@item.fnotifytime</i>
+                                        </div>
+                                    </a>
+                                    <span class="tag green">New</span>
+                                </li>
+                            }
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-1.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>sarah Loren</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag green">New</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-2.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Jhon doe</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag red">Reply</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-3.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Andrew</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag blue">Unseen</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-4.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Tom cruse</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag">New</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-5.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Amy</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag">New</span>
+                            </li>
+                        </ul>
+                        <a href="notifications.html" title="" class="more-mesg">view more</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" title="訊息" data-ripple=""><i class="far fa-comments"></i><span>12</span></a>
+                    <div class="dropdowns">
+                        <span>訊息</span>
+                        <ul class="drops-menu">
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-1.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>sarah Loren</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag green">New</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-2.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Jhon doe</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag red">Reply</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-3.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Andrew</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag blue">Unseen</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-4.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Tom cruse</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag">New</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-5.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Amy</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag">New</span>
+                            </li>
+                        </ul>
+                        <a href="messages.html" title="" class="more-mesg">view more</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" title="錢包" data-ripple=""><i class="fas fa-wallet"></i></a>
+                    <div class="dropdowns">
+                        <span>點數</span>
+                        <div class="text-center">
+                            剩餘：300
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="user-img">
+                <img src="~/images/IdPhoto/@member.fIdPhoto" alt="" style="width:50px">
+                <label class="d-none" id="NavbarMemberId">@member.fMemberId.ToString()</label>
+                <span class="status f-online"></span>
+                <div class="user-setting">
+                    <a href="" title="" id="NavBarGoToPersonal">帳戶設定</a>
+                    <a href="#" title="" id="logout">登出</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#logout").click(function () {
+            $.ajax({
+                url: "/Blog/log_out",
+                type: "GET",
+                success: function (data) {
+                    window.location.assign("/Blog/happyLogin")
+                }
+            });
+        });
+
+        $("#brokenHome").click(function () {
+            $.ajax({
+                url: "/Blog/bloggerIndex",
+                type: "GET",
+                success: function (data) {
+                    window.location.assign("/Blog/bloggerIndex")
+                }
+            });
+        });
+        @* 已讀功能 *@
+        $("#notifyread").click(function () {
+            $.ajax({
+                url: "/Blog/notifyRead",
+                type: 'get',
+                success: function () {
+                    $("#count").text("0");
+                }
+            })
+
+        })
+
+        $("li[category='friend']").click(function () {
+            $("#tofrends").removeClass("active");
+            $("#tofrends-req").addClass("active");
+            $("#tofrends").removeClass("active show");
+            $("#tofrends-req").addClass("active show");
+            $("#friendModal").modal("show");
+        });
+    </script>
+  
+   
+
+
+    <!--Navbar-->
+    @RenderBody()
+    @*<div class="container body-content">
+
+
+        </div>*@
+
+</body>
+</html>

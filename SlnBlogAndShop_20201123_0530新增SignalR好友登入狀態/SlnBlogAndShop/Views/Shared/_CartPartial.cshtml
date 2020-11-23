@@ -1,0 +1,29 @@
+﻿@{
+    var currentCart = SlnBlogAndShop.ViewModel.Operation.getCurrentCart();
+}
+<a href="#" title="購物車" data-ripple=""><i class="fas fa-shopping-cart"></i><span>@String.Format("{0}", currentCart.count)</span></a>
+<div class="dropdowns">
+    <span>購物車清單</span>
+    <ul class="drops-menu">
+        @if (currentCart.count > 0)
+        {
+            foreach (var cartitem in currentCart)
+            {
+
+                <li>
+                    <a>@cartitem.cName <span>@cartitem.cPrice 元 X @cartitem.cQuantity </span></a>
+                </li>
+            }
+
+            <li>
+                <a class="btn btn-default text-center" href="@Url.Action("cart","Shop",new { })" role="button">結帳去</a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a class="btn btn-default text-center" href="#">購物車無任何商品</a>
+            </li>
+        }
+    </ul>
+</div>

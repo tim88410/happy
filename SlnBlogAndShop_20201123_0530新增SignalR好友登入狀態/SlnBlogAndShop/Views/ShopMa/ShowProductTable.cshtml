@@ -1,0 +1,124 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@using SlnBlogAndShop.Models
+@model IPagedList<tProduct>
+@{
+    var count = 0;
+}
+
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+
+@*<link href="~/Content/ShopMa/seller/test/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/ShopMa/profile/css/profile.css" rel="stylesheet" />
+    <link href="~/Content/ShopMa/profile/css/formdetails.css" rel="stylesheet" />*@
+
+<div>
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">
+
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().fProductId)
+                </th>
+                <th scope="col">
+
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().fProductName)
+                </th>
+                <th scope="col">
+
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().fUnitprice)
+                </th>
+                <th scope="col">上架</th>
+                <th scope="col">新品</th>
+                <th scope="col">熱銷</th>
+                <th scope="col">
+
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().fProductinstock)
+                </th>
+                <th scope="col">動作</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th scope="row">
+                        <input type="checkbox" class="checkbox" />
+                    </th>
+
+                    <td>
+                        @count
+                    </td>
+                    <td>
+                        @item.fProductName
+                        <p>
+                            <img src="/Content/Shop/ProductPic/@item.fProductpicture" width="80" height="60" />
+                        </p>
+                    </td>
+                    <td>
+                        @item.fUnitprice
+                    </td>
+                    <td>
+                        <i class="link-icon" data-feather="x-square"></i>
+                    </td>
+                    <td>
+                        <i class="link-icon" data-feather="x-square"></i>
+                    </td>
+                    <td>
+                        <i class="link-icon" data-feather="x-square"></i>
+                    </td>
+
+                    <td>
+                        @item.fProductinstock
+                    </td>
+
+                    <td>
+                        <a title="下架" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down-circle link-icon">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="8 12 12 16 16 12"></polyline>
+                                <line x1="12" y1="8" x2="12" y2="16"></line>
+                            </svg>
+
+                            @*<i class="link-icon" data-feather="arrow-down-circle">下架</i>*@
+                        </a>
+                        <a title="編輯" href="@Url.Action("updateproduct","ShopMa",new { id=item.fProductId})">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit link-icon"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+
+                            @*<i class="link-icon" data-feather="edit">編輯</i>*@
+                        </a>
+
+                        <a title="刪除" href="@Url.Action("delete","ShopMa",new { id=item.fProductId})" onclick="return confirm('確定要刪除嗎?')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash">
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                            </svg>
+
+                            @*<i class="link-icon" data-feather="trash">刪除</i>*@
+                        </a>
+                        @*<script src="~/Content/ShopMa/seller/vendors/feather-icons/feather.min.js"></script>*@
+
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+    @Html.PagedListPager(Model,
+  page => Url.Action("ShowProductTable", new { page = page }),
+  PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+            new AjaxOptions()
+            {
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "tables"
+            }
+   ))
+</div>

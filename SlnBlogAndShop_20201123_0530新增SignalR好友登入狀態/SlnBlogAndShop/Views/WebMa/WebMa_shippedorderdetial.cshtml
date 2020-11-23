@@ -1,0 +1,182 @@
+﻿
+@{
+    ViewBag.Title = "shippedorderdetial";
+
+}
+<div class="page-content  ">
+    <div class="container">
+        <div class="row justify-content-start">
+            <div class="col">
+                <div style="display:inline-block">
+                    <input type="text" placeholder="出貨單編號">
+                </div>
+                <span>　　</span>
+                <div style="display:inline-block">
+                    <input type="text" placeholder="訂單編號">
+                </div>
+                <span>　　</span>
+                <div style="display:inline-block">
+                    <input type="text" placeholder="收貨人">
+                </div>
+                <span>　　</span>
+                <div style="display:inline-block">
+                    <select>
+                        <option>出貨單狀態</option>
+                        <option>已出貨</option>
+                        <option>正常</option>
+                        <option>退貨</option>
+                    </select>
+                </div>
+                <span>　　</span>
+                <div style="display:inline-block">
+                    <button type="button" class="btn btn-primary">搜尋</button>
+                </div>
+            </div>
+
+            <div class="w-100">　　</div>
+
+            <div class="col">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <button type="button" class="btn btn-danger btn btn-secondary">全部刪除</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-100">　　</div>
+
+            <div class="col">
+                <div>
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">出貨單編號</th>
+                                <th scope="col">訂單編號</th>
+                                <th scope="col">下單時間</th>
+                                <th scope="col">收貨人</th>
+                                <th scope="col">出貨時間</th>
+                                <th scope="col">出貨狀態</th>
+                                <th scope="col">動作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <input type="checkbox" class="checkbox" />
+                                </th>
+                                <td>31454886667</td>
+
+                                <td>10911080101</td>
+                                <td>
+                                    2020/11/08
+                                </td>
+                                <td>Lily</td>
+                                <td>
+                                    2020/11/10
+                                </td>
+                                <td>
+                                    已出貨
+                                </td>
+                                <td>
+                                    <a title="訂單明細" href="#" data-toggle="modal" data-target="#editshippedorderdetial">
+                                        <i class="link-icon" data-feather="edit"></i>
+                                    </a>
+                                    <a title="删除" href="#">
+                                        <i class="link-icon" data-feather="trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="w-100">　　</div>
+
+            <div class="col">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="modal" tabindex="-1" id="editshippedorderdetial">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputText1">訂單狀態</label>
+                                <input type="text" class="form-control" id="exampleInputText6" disabled="disabled" value="" placeholder="已完成">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputText1">購買人姓名</label>
+                                <input type="text" class="form-control" id="exampleInputText1" disabled="disabled" value="" placeholder="Lily">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputText1">收貨人姓名</label>
+                                <input type="text" class="form-control" id="exampleInputText2" disabled="disabled" value="" placeholder="Lily">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputText1">收貨人地址</label>
+                                <input type="text" class="form-control" id="exampleInputText3" disabled="disabled" value="" placeholder="新北市">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputText1">應付金額</label>
+                                <input type="text" class="form-control" id="exampleInputText4" disabled="disabled" value="" placeholder="5000">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputText1">付款方式</label>
+                                <input type="text" class="form-control" id="exampleInputText5" disabled="disabled" value="" placeholder="貨到付款">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputText1">新增備註</label>
+                                <textarea class="form-control" placeholder="此備註僅賣家自己可看見" rows="5"></textarea>
+                            </div>
+
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">離開</button>
+                        <button type="button" class="btn btn-primary">儲存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,200 @@
+﻿@model prjBlog.ViewModel.TMember
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        label.cabinet {
+            display: block;
+            cursor: pointer;
+        }
+            label.cabinet input.file {
+                position: relative;
+                height: 100%;
+                width: auto;
+                opacity: 0;
+                -moz-opacity: 0;
+                filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+                margin-top: -30px;
+            }
+
+        #upload-demo {
+            width: 250px;
+            height: 250px;
+            padding-bottom: 25px;
+        }
+        figure {
+            width: 150px;
+            height: 150px;
+            overflow:hidden;
+        }
+        figure figcaption {
+            position: absolute;
+            bottom: 0;
+            color: #fff;
+            /*width: 100%;*/
+            padding-left: 9px;
+            padding-bottom: 5px;
+            text-shadow: 0 0 10px #000;
+        }
+    </style>
+    <link href="~/Content/Blog/croppie.css" rel="stylesheet" />
+    <link href="~/Content/Blog/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/Blog/jquery3.5.1.js"></script>
+    <script src="~/Scripts/Blog/bootstrap.js"></script>
+    <script src="~/Scripts/Blog/croppie.min.js"></script>
+</head>
+<body>
+    <div class="container-md">
+        <h2>一般會員註冊</h2>
+        <div class="">
+            @using (Html.BeginForm("createMember", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">頭像</label>
+                        <div class="col-md-4">
+                            <label class="cabinet">
+                                <figure class="img">
+                                    <img src="https://user.gadjian.com/static/images/personnel_boy.png" class="gambar img-responsive img-thumbnail" id="item-img-output" />
+                                    <figcaption><i class="fa fa-camera"></i></figcaption>
+                                </figure>
+                                <input type="file"  class="item-img file center-block" name="file_photo" />
+                                <input type="text" id="file_image"  name="file_image" style="display: none"/>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.fEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.fEmail, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.fEmail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.fName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.fName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.fName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.fPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.fPhone, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.fPhone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.fPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.fPassword, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.fPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            @*@Html.ActionLink("確認", "createMember", "Home", new { }, new { @class = "btn btn-outline-success" })*@
+                            <input type="submit" value="確認" class="btn btn-outline-success" />
+                            @Html.ActionLink("回登入頁面", "happyLogin", "Blog", null, new { @class = "btn btn-secondary" })
+                            
+                            @*<input type="submit" value="Create" class="btn btn-outline-success" />*@
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="modal fade" id="cropImagePop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        <?=multiLanguage( "Edit Foto" , "Edit Photo" )?>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div id="upload-demo" class="center-block"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="cropImageBtn" class="btn btn-primary">Crop</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+       
+    // Start upload preview image
+        var $uploadCrop,
+            tempFilename,
+            rawImg,
+            imageId,
+            croppiedImage;
+        function readFile(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('.upload-demo').addClass('ready');
+                    $('#cropImagePop').modal('show');
+                    rawImg = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+            else {
+                swal("Sorry - you're browser doesn't support the FileReader API");
+            }
+        }
+
+        $uploadCrop = $('#upload-demo').croppie({
+            viewport: {
+                width: 200,
+                height: 200,
+            },
+            enforceBoundary: false,
+            enableExif: true
+        });
+        $('#cropImagePop').on('shown.bs.modal', function () {
+            // alert('Shown pop');
+            $uploadCrop.croppie('bind', {
+                url: rawImg
+            }).then(function () {
+                console.log('jQuery bind complete');
+            });
+        });
+        //變更div內容觸發
+        $('.item-img').on('change', function () {
+            imageId = $(this).data('id'); tempFilename = $(this).val();
+            $('#cancelCropBtn').data('id', imageId); readFile(this);
+        });
+        $('#cropImageBtn').on('click', function (ev) {
+            $uploadCrop.croppie('result', {
+                type: 'base64',
+                format: 'jpeg',
+                size: { width: 200, height: 200 }
+            }).then(function (resp) {
+                $('#item-img-output').attr('src', resp);
+                $('#file_image').attr('value',resp);
+                $('#cropImagePop').modal('hide');
+            });
+        });
+
+        
+                    // End upload preview image</script>
+</body>
+</html>

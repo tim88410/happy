@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="94afe752c5214bb683949e6bb74a556b" Name="Diagram1">
+        <EntityTypeShape EntityType="happyModel.tActivity" Width="1.5" PointX="5.25" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tActivityMember" Width="1.5" PointX="10.5" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tAd" Width="1.5" PointX="8.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tCategory" Width="1.5" PointX="3.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tChildcomment" Width="1.5" PointX="3" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tFollow" Width="1.5" PointX="3" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tFriendinvite" Width="1.5" PointX="3" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tGroup" Width="1.5" PointX="3" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tGroupdetail" Width="1.5" PointX="8.25" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tManager" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tMember" Width="1.5" PointX="0.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tMessage" Width="1.5" PointX="3" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tNotify" Width="1.5" PointX="3" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tOrderdetail" Width="1.5" PointX="11.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tOrder" Width="1.5" PointX="9" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tParentcomment" Width="1.5" PointX="13.5" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tPMSupplier" Width="1.5" PointX="11.25" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tPost" Width="1.5" PointX="8.25" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tPostliked" Width="1.5" PointX="10.5" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tProduct" Width="1.5" PointX="6" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tReport_Blog" Width="1.5" PointX="13.5" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tSupplier" Width="1.5" PointX="3.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="happyModel.tTag" Width="1.5" PointX="10.5" PointY="30.25" IsExpanded="true" />
+        <AssociationConnector Association="happyModel.FK_tActivity_tGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tActivity_tMember" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tActivityMember_tActivity1" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tActivityMember_tMember" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tAd_tProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tAd_tSupplier" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tProduct_tCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tChildcomment_tMember" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tChildcomment_tParentcomment" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tFollow_tMember" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tFollow_tMember1" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tFriendinvite_tMember" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tFriendinvite_tMember1" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tGroup_tMember" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tGroupdetail_tGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tPost_tGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tGroupdetail_tMember" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tComment_tMember" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tMessage_tMember" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tMessage_tMember1" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tNotify_tMember" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tNotify_tMember1" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tPost_tMember" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tPostliked_tMember" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tProduct_tMember" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tReport_Blog_tMember" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tOrderdetail_tOrders" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tOrderdetail_tProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tPMSupplier_tOrders" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tComment_tPost" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tParentcomment_tPost" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tPMSupplier_tProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tPostliked_tPost" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tReport_Blog_tPost" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.FK_tProduct_tSupplier" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.tFavoritepost" ManuallyRouted="false" />
+        <AssociationConnector Association="happyModel.tTagdetails" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

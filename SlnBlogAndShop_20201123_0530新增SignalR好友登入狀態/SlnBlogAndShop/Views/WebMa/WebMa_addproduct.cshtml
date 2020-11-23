@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "addproduct";
+
+}
+
+<div class="page-content">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">新增商品</h6>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputText1">商品名稱</label>
+                            <input type="text" class="form-control" id="exampleInputText1" value="" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputText1">商品價格</label>
+                            <input type="text" class="form-control" id="exampleInputText2" value="" placeholder="Enter Price">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">商品描述</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect2">商品類別</label>
+                            <select multiple class="form-control" id="exampleFormControlSelect2">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">商品規格</label>
+                            <select class="form-control" id="examplenum">
+                                <option selected disabled>數量</option>
+                                <option>10-20</option>
+                                <option>21-30</option>
+                                <option>31-40</option>
+                                <option>41-50</option>
+                                <option>50以上</option>
+                            </select>
+                            <select class="form-control" id="examplesize">
+                                <option selected disabled>尺寸</option>
+                                <option>S</option>
+                                <option>M</option>
+                                <option>L</option>
+
+                            </select>
+                            <select class="form-control" id="examplecolor">
+                                <option selected disabled>顏色</option>
+                                <option>黑</option>
+                                <option>灰</option>
+                                <option>白</option>
+                                <option>粉</option>
+                                <option>藍</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>圖片</label>
+                            <input type="file" name="img[]" class="file-upload-default">
+                            <div class="input-group col-xs-12">
+                                <input type="text" class="form-control file-upload-info" disabled="" placeholder="Image">
+                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                </span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">儲存</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

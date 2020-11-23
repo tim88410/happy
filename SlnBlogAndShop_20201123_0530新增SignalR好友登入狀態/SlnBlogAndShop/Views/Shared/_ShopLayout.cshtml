@@ -1,0 +1,495 @@
+﻿@model SlnBlogAndShop.ViewModel.CShop
+
+
+@{
+    List<tSupplier> s品牌廠商 = Model.shop品牌廠商;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title  -->
+    <title>Karl - Fashion Ecommerce Template | Home</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="~/Content/Shop/ShoppingMall/img/core-img/favicon.ico">
+
+    <!-- Core Style CSS -->
+    <link href="~/Content/Blog/main.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Content/Shop/ShoppingMall/css/core-style.css">
+    <link rel="stylesheet" href="~/Content/Shop/ShoppingMall/style.css">
+    <link rel="stylesheet" href="~/Content/Blog/style.css">
+    <!-- Responsive CSS -->
+    <link href="~/Content/Shop/ShoppingMall/css/responsive.css" rel="stylesheet">
+
+    <!-- bootstrap theme -->
+    @*<link href="~/Content/Shop/ShoppingMall/css/bootstrap-theme.css" rel="stylesheet">*@
+
+    <!-- font icon -->
+    @*<link href="~/Content/Shop/ShoppingMall/css/elegant-icons-style.css" rel="stylesheet" />
+        <link href="~/Content/Shop/ShoppingMall/css/font-awesome.min.css" rel="stylesheet" />*@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log("ready!");
+        });
+
+
+        function AddToCart(productId) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("AddToCart", "Cart")',
+                data: { id: productId }
+            })
+            .done(function (msg) {
+                //將回傳的購物車頁面 填入 li#Cart
+                $('li#Cart').html(msg);
+            });
+        }
+
+    </script>
+
+    <style>
+        .logo img {
+            object-fit: cover;
+            height: 50px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <div id="wrapper">
+        <!-- ****** Header Area Start ****** -->
+        <!-- Top Header Area Start -->
+
+    </div>
+
+    <div class="topbar stick shadow" style="width:100%;position:fixed;">
+        <div class="logo pt-1">
+            <a title="" href="~/Blog/bloggerIndex">
+                <img src="~/images/LOGO.PNG" />
+            </a>
+        </div>
+        <div class="d-inline-block">
+            <div class="row">
+                <div class="col">
+                    <a href="~/Shop/Index">SHOP</a>
+                </div>
+                <div class="col">
+                    <a href="~/Blog/personalPage">BLOG</a>
+                </div>
+            </div>
+        </div>
+        <div class="top-area">
+            <ul class="setting-area">
+                <li>
+                    <a href="#" title="搜尋" data-ripple=""><i class="fas fa-search"></i></a>
+                    <div class="dropdowns form-search border">
+                        <form method="post" class="custom-control-inline">
+                            <select>
+                                <option>內文</option>
+                                <option>標籤</option>
+                                <option>用戶</option>
+                            </select>
+                            <input type="text" placeholder="搜尋">
+                            <button data-ripple><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <a href="newsfeed.html" title="首頁" data-ripple=""><i class="fas fa-home"></i></a>
+                </li>
+                <li>
+                    <a href="#" title="通知" data-ripple="">
+                        <i class="fas fa-bullhorn"></i><span>20</span>
+                    </a>
+                    <div class="dropdowns">
+                        <span>通知</span>
+                        <ul class="drops-menu">
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-1.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>sarah Loren</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag green">New</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-2.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Jhon doe</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag red">Reply</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-3.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Andrew</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag blue">Unseen</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-4.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Tom cruse</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag">New</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-5.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Amy</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag">New</span>
+                            </li>
+                        </ul>
+                        <a href="notifications.html" title="" class="more-mesg">view more</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" title="訊息" data-ripple=""><i class="far fa-comments"></i><span>12</span></a>
+                    <div class="dropdowns">
+                        <span>訊息</span>
+                        <ul class="drops-menu">
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-1.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>sarah Loren</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag green">New</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-2.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Jhon doe</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag red">Reply</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-3.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Andrew</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag blue">Unseen</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-4.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Tom cruse</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag">New</span>
+                            </li>
+                            <li>
+                                <a href="notifications.html" title="">
+                                    <img src="~/images/resources/thumb-5.jpg" alt="">
+                                    <div class="mesg-meta">
+                                        <h6>Amy</h6>
+                                        <span>Hi, how r u dear ...?</span>
+                                        <i>2 min ago</i>
+                                    </div>
+                                </a>
+                                <span class="tag">New</span>
+                            </li>
+                        </ul>
+                        <a href="messages.html" title="" class="more-mesg">view more</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" title="錢包" data-ripple=""><i class="fas fa-wallet"></i></a>
+                    <div class="dropdowns">
+                        <span>點數</span>
+                        <div class="text-center">
+                            剩餘：300
+                        </div>
+                    </div>
+                </li>
+                <li id="Cart">
+                    @Html.Partial("_CartPartial")
+                </li>
+            </ul>
+            <div class="user-img">
+                <img src="~/images/resources/admin.jpg" alt="">
+                <span class="status f-online"></span>
+                <div class="user-setting">
+                    <a href="#" title=""><span class="status f-online"></span>online</a>
+                    <a href="#" title=""><span class="status f-away"></span>away</a>
+                    <a href="#" title=""><span class="status f-off"></span>offline</a>
+                    <a href="#" id="sellerCenter" title="">賣家中心</a>
+                    <a href="#" title="">edit profile</a>
+                    <a href="#" title="">activity log</a>
+                    <a href="#" title="">account setting</a>
+                    <a href="#" title="">log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Top Header Area End -->
+    <div class="main_header_area mt-5">
+        <div class="container">
+            <div class="row h-100">
+                <div class="col-12 d-md-flex justify-content-between">
+                    <!-- Header Social Area -->
+                    @*<div class="header-social-area">*@
+                    @*<a href="#"><span class="karl-level">Share</span> <i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>*@
+                    @*</div>*@
+                    <!-- Menu Area -->
+
+                    <div class="main-menu-area  w-100">
+                        <nav class="navbar navbar-expand-lg align-items-start">
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#karl-navbar" aria-controls="karl-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"><i class="ti-menu"></i></span></button>
+
+                            <div class="collapse navbar-collapse collapse" id="karl-navbar">
+                                <ul class="navbar-nav animated w-100 justify-content-center" id="nav">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#new_Arrivals">最新商品</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#hot_collection">
+                                            @*<span class="karl-level">hot</span>*@
+                                            熱門商品
+                                        </a>
+                                    </li>
+
+
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">品牌</a>
+                                        <div class="dropdown-menu" aria-labelledby="karlDropdown">
+                                            <a class="dropdown-item" href="@Url.Action("shop","Shop",new { id=0})">ALL</a>
+
+                                            @foreach (var item in s品牌廠商)
+                                            {
+                                                <input type="hidden" name="@item.fSupplierId" value="@item.fSupplierId" />
+                                                <a class="dropdown-item" href="@Url.Action("shop","Shop",new { id=item.fSupplierId})">@item.fName</a>
+                                            }
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">上衣</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">下身</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">鞋</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">配件</a>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                                        <div class="dropdown-menu" aria-labelledby="karlDropdown">
+                                            <a class="dropdown-item" href="index">Home</a>
+                                            <a class="dropdown-item" href="shop">Shop</a>
+                                            <a class="dropdown-item" href="product_details">Product Details</a>
+                                            <a class="dropdown-item" href="cart">Cart</a>
+                                            <a class="dropdown-item" href="checkout">Checkout</a>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <!-- Help Line -->
+                    @*<div class="help-line">*@
+                    @*<a href="tel:+346573556778"><i class="ti-headphone-alt"></i> +34 657 3556 778</a>*@
+                    @*</div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ****** Header Area End ****** -->
+    <hr />
+    @RenderBody()
+
+    <!-- ****** Footer Area Start ****** -->
+    <footer class="footer_area">
+        <div class="container">
+            <div class="row">
+                <!-- Single Footer Area Start -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="single_footer_area">
+                        <div class="footer-logo">
+                            <img src="~/Content/ShoppingMall/img/core-img/logo.png" alt="">
+                        </div>
+                        <div class="copywrite_text d-flex align-items-center">
+                            <p>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                @*Copyright &copy;
+                                    <script>document.write(new Date().getFullYear());</script> All rights reserved | Made with
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i> by
+                                    <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by
+                                    <a href="https://themewagon.com" target="_blank">ThemeWagon</a>*@
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Footer Area Start -->
+                <div class="col-12 col-sm-6 col-md-3 col-lg-2">
+                    <div class="single_footer_area">
+                        <ul class="footer_widget_menu">
+                            <li>
+                                <a href="#">About</a>
+                            </li>
+                            <li>
+                                <a href="#">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#">Faq</a>
+                            </li>
+                            <li>
+                                <a href="#">Returns</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Single Footer Area Start -->
+                <div class="col-12 col-sm-6 col-md-3 col-lg-2">
+                    <div class="single_footer_area">
+                        <ul class="footer_widget_menu">
+                            <li>
+                                <a href="#">My Account</a>
+                            </li>
+                            <li>
+                                <a href="#">Shipping</a>
+                            </li>
+                            <li>
+                                <a href="#">Our Policies</a>
+                            </li>
+                            <li>
+                                <a href="#">Afiliates</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Single Footer Area Start -->
+                <div class="col-12 col-lg-5">
+                    <div class="single_footer_area">
+                        <div class="footer_heading mb-30">
+                            <h6>Subscribe to our newsletter</h6>
+                        </div>
+                        <div class="subscribtion_form">
+                            <form action="#" method="post">
+                                <input type="email" name="mail" class="mail" placeholder="Your email here">
+                                <button type="submit" class="submit">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="line"></div>
+
+            <!-- Footer Bottom Area Start -->
+            <div class="footer_bottom_area">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="footer_social_area text-center">
+                            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ****** Footer Area End ****** -->
+    <!-- /.wrapper end -->
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="~/Content/Shop/ShoppingMall/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="~/Content/Shop/ShoppingMall/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="~/Content/Shop/ShoppingMall/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="~/Content/Shop/ShoppingMall/js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="~/Content/Shop/ShoppingMall/js/active.js"></script>
+
+    <!-- chartjs -->
+    <script src="~/Content/Shop/ShoppingMall/assets/chart-master/Chart.js"></script>
+    <!-- custom chart script for this page only-->
+    <script src="~/Content/Shop/ShoppingMall/js/chartjs-custom.js"></script>
+
+    <script src="https://kit.fontawesome.com/1cdd413fb3.js" crossorigin="anonymous"></script>
+    @*<script src="~/Scripts/Blog/main.min.js"></script>*@
+
+    <script>
+        $("#sellerCenter").click(function () {
+            $.ajax({
+                url: "/ShopMa/homepage",
+                type: "GET",
+                success: function (data) {
+                    window.location.assign("/ShopMa/homepage")
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

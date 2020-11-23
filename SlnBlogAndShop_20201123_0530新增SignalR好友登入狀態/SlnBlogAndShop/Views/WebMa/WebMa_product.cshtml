@@ -1,0 +1,284 @@
+﻿
+@{
+    ViewBag.Title = "product";
+}
+
+<div class="page-content  ">
+    <div class="container">
+        <div class="row justify-content-start">
+            <div class="col">
+                <input type="text" id="datepicker" placeholder="開始日">
+                <input type="text" id="datepicker2" placeholder="截止日">
+                <input type="text" placeholder="商品名稱">
+                <span>　　</span>
+                <button type="button" class="btn btn-primary">搜尋</button>
+            </div>
+
+            <div class="w-100">　　</div>
+
+            <div class="col">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <button type="button" class="btn btn-danger btn btn-secondary">全部刪除</button>
+                    </div>
+                    <div class="btn-group mr-2" role="group" aria-label="Second group">
+                        <button type="button" class="btn btn-success btn btn-secondary" data-toggle="modal" data-target="#addproduct">新增</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-100">　　</div>
+
+            <div class="col">
+                <div>
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">編號</th>
+                                <th scope="col">商品名稱</th>
+                                <th scope="col">價格</th>
+                                <th scope="col">上架</th>
+                                <th scope="col">新品</th>
+                                <th scope="col">熱銷</th>
+                                <th scope="col">庫存量</th>
+                                <th scope="col">動作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <input type="checkbox" class="checkbox" />
+                                </th>
+                                <td>9527</td>
+                                <td>iphone12</td>
+                                <td>NT$20000</td>
+                                <td>
+                                    <i class="link-icon" data-feather="x-square"></i>
+                                </td>
+                                <td>
+                                    <i class="link-icon" data-feather="x-square"></i>
+                                </td>
+                                <td>
+                                    <i class="link-icon" data-feather="x-square"></i>
+                                </td>
+                                <td>
+                                    <i>500</i>
+                                </td>
+                                <td>
+                                    <a title="下架" href="#">
+                                        <i class="link-icon" data-feather="arrow-down-circle"></i>
+                                    </a>
+                                    <a title="編輯" href="#" data-toggle="modal" data-target="#updateproduct">
+                                        <i class="link-icon" data-feather="edit"></i>
+                                    </a>
+                                    <a title="删除" href="#">
+                                        <i class="link-icon" data-feather="trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="w-100">　　</div>
+
+            <div class="col">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="modal" tabindex="-1" id="addproduct">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">新增商品</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputText1">商品名稱</label>
+                                    <input type="text" class="form-control" id="exampleInputText1" value="" placeholder="Enter Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputText1">商品價格</label>
+                                    <input type="text" class="form-control" id="exampleInputText2" value="" placeholder="Enter Price">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">商品描述</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect2">商品類別</label>
+                                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">商品規格</label>
+                                    <select class="form-control" id="examplenum">
+                                        <option selected disabled>數量</option>
+                                        <option>10-20</option>
+                                        <option>21-30</option>
+                                        <option>31-40</option>
+                                        <option>41-50</option>
+                                        <option>50以上</option>
+                                    </select>
+                                    <select class="form-control" id="examplesize">
+                                        <option selected disabled>尺寸</option>
+                                        <option>S</option>
+                                        <option>M</option>
+                                        <option>L</option>
+
+                                    </select>
+                                    <select class="form-control" id="examplecolor">
+                                        <option selected disabled>顏色</option>
+                                        <option>黑</option>
+                                        <option>灰</option>
+                                        <option>白</option>
+                                        <option>粉</option>
+                                        <option>藍</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>圖片</label>
+                                    <input type="file" name="img[]" class="file-upload-default">
+                                    <div class="input-group col-xs-12">
+                                        <input type="text" class="form-control file-upload-info" disabled="" placeholder="Image">
+                                        <span class="input-group-append">
+                                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">離開</button>
+                            <button type="button" class="btn btn-primary">儲存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal" tabindex="-1" id="updateproduct">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">編輯商品</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputText1">商品名稱</label>
+                                    <input type="text" class="form-control" id="exampleInputText1" value="" placeholder="Enter Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputText1">商品價格</label>
+                                    <input type="text" class="form-control" id="exampleInputText2" value="" placeholder="Enter Price">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">商品描述</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect2">商品類別</label>
+                                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">商品規格</label>
+                                    <select class="form-control" id="examplenum">
+                                        <option selected disabled>數量</option>
+                                        <option>10-20</option>
+                                        <option>21-30</option>
+                                        <option>31-40</option>
+                                        <option>41-50</option>
+                                        <option>50以上</option>
+                                    </select>
+                                    <select class="form-control" id="examplesize">
+                                        <option selected disabled>尺寸</option>
+                                        <option>S</option>
+                                        <option>M</option>
+                                        <option>L</option>
+
+                                    </select>
+                                    <select class="form-control" id="examplecolor">
+                                        <option selected disabled>顏色</option>
+                                        <option>黑</option>
+                                        <option>灰</option>
+                                        <option>白</option>
+                                        <option>粉</option>
+                                        <option>藍</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>圖片</label>
+                                    <input type="file" name="img[]" class="file-upload-default">
+                                    <div class="input-group col-xs-12">
+                                        <input type="text" class="form-control file-upload-info" disabled="" placeholder="Image">
+                                        <span class="input-group-append">
+                                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">離開</button>
+                            <button type="button" class="btn btn-primary">儲存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

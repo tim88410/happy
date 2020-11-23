@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "WebMa_blacklist";
+}
+
+<div class="page-content  ">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+            <div>
+                <h4 class="mb-3 mb-md-0">黑名單</h4>
+            </div>
+        </div>
+        <div class="row justify-content-start">
+            <div class="col">
+                <input type="text" placeholder="用戶ID">
+                <span>　　</span>
+                <input type="text" placeholder="用戶名稱">
+                <span>　　</span>
+                <button type="button" class="btn btn-primary">搜尋</button>
+            </div>
+
+            <div class="w-100">　　</div>
+
+            <div class="col">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <button type="button" class="btn btn-danger btn btn-secondary">批次移除</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-100">　　</div>
+
+            <div class="col">
+                <div>
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">用戶ID</th>
+                                <th scope="col">用戶名稱</th>
+                                <th scope="col">事由</th>
+                                <th scope="col">持續時間</th>
+                                <th scope="col">動作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <input type="checkbox" class="checkbox" />
+                                </th>
+                                <td>9527</td>
+                                <td>華安</td>
+                                <td>文章不實</td>
+                                <td>一週</td>
+                                <td>
+                                    <button class="btn btn-sm btn-success">移出</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="w-100">　　</div>
+
+            <div class="col">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+

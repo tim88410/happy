@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "WebMa_adApply";
+}
+
+<div class="page-content  ">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+            <div>
+                <h4 class="mb-3 mb-md-0">廣告申請</h4>
+            </div>
+        </div>
+        <div class="row justify-content-start">
+            <div class="col">
+                <div style="display:inline-block">
+                    <input type="text" id="datepicker" placeholder="開始日">
+                </div>
+                <div style="display:inline-block">
+                    <input type="text" id="datepicker2" placeholder="結束日">
+                </div>
+                <div style="display:inline-block">
+                    <input type="text" placeholder="關鍵字">
+                </div>
+                <span>　　</span>
+                <div style="display:inline-block">
+                    <button type="button" class="btn btn-primary">搜尋</button>
+                </div>
+            </div>
+
+            <div class="w-100">　　</div>
+
+            <div class="col">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <button type="button" class="btn btn-danger btn btn-secondary">全部刪除</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="w-100">　　</div>
+
+
+            <div class="col">
+                <div>
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">申請ID</th>
+                                <th scope="col">廠商</th>
+                                <th scope="col">廣告名稱</th>
+                                <th scope="col">廣告內容</th>
+                                <th scope="col">開始時間</th>
+                                <th scope="col">結束時間</th>
+                                <th scope="col">動作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <input type="checkbox" class="checkbox" />
+                                </th>
+                                <td>10911080101</td>
+                                <td>小雞啄米</td>
+                                <td>含笑半步顛</td>
+                                <td>
+                                    居家旅行必備良藥
+                                </td>
+                                <td>
+                                    2020/11/08
+                                </td>
+                                <td>
+                                    2020/11/18
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-success">通過</button>
+                                    <button class="btn btn-sm btn-danger">駁回</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="w-100">　　</div>
+
+            <div class="col">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            showOn: "both",
+            buttonImage: "/Content/seller/images/calendar.png",
+            buttonImageOnly: true,
+            buttonText: "請選擇日期",
+            dateFormat: "yy-mm-dd"
+        });
+    });
+
+    $(function () {
+        $("#datepicker2").datepicker({
+            showOn: "both",
+            buttonImage: "/Content/seller/images/calendar.png",
+            buttonImageOnly: true,
+            buttonText: "請選擇日期",
+            dateFormat: "yy-mm-dd"
+        });
+    });
+</script>
+

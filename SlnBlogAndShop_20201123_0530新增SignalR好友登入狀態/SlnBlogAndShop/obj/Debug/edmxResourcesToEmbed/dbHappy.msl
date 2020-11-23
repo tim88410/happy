@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="happyModelStoreContainer" CdmEntityContainer="happyEntities">
+    <EntitySetMapping Name="tActivities">
+      <EntityTypeMapping TypeName="happyModel.tActivity">
+        <MappingFragment StoreEntitySet="tActivity">
+          <ScalarProperty Name="fActivityId" ColumnName="fActivityId" />
+          <ScalarProperty Name="fCreatorId" ColumnName="fCreatorId" />
+          <ScalarProperty Name="fGroupId" ColumnName="fGroupId" />
+          <ScalarProperty Name="fTitle" ColumnName="fTitle" />
+          <ScalarProperty Name="fDescription" ColumnName="fDescription" />
+          <ScalarProperty Name="fCreatetime" ColumnName="fCreatetime" />
+          <ScalarProperty Name="fStarttime" ColumnName="fStarttime" />
+          <ScalarProperty Name="fEndtime" ColumnName="fEndtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tActivityMembers">
+      <EntityTypeMapping TypeName="happyModel.tActivityMember">
+        <MappingFragment StoreEntitySet="tActivityMember">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fActivityId" ColumnName="fActivityId" />
+          <ScalarProperty Name="fMemberId" ColumnName="fMemberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tAds">
+      <EntityTypeMapping TypeName="happyModel.tAd">
+        <MappingFragment StoreEntitySet="tAd">
+          <ScalarProperty Name="fAdId" ColumnName="fAdId" />
+          <ScalarProperty Name="fProductId" ColumnName="fProductId" />
+          <ScalarProperty Name="fSupplierId" ColumnName="fSupplierId" />
+          <ScalarProperty Name="fDescription" ColumnName="fDescription" />
+          <ScalarProperty Name="fPicture" ColumnName="fPicture" />
+          <ScalarProperty Name="fStarttime" ColumnName="fStarttime" />
+          <ScalarProperty Name="fEndtime" ColumnName="fEndtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tCategories">
+      <EntityTypeMapping TypeName="happyModel.tCategory">
+        <MappingFragment StoreEntitySet="tCategory">
+          <ScalarProperty Name="fCatrgoryId" ColumnName="fCatrgoryId" />
+          <ScalarProperty Name="fCategoryname" ColumnName="fCategoryname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tChildcomments">
+      <EntityTypeMapping TypeName="happyModel.tChildcomment">
+        <MappingFragment StoreEntitySet="tChildcomment">
+          <ScalarProperty Name="fChildcommentId" ColumnName="fChildcommentId" />
+          <ScalarProperty Name="fChilduserId" ColumnName="fChilduserId" />
+          <ScalarProperty Name="fChilddescription" ColumnName="fChilddescription" />
+          <ScalarProperty Name="fChildtime" ColumnName="fChildtime" />
+          <ScalarProperty Name="fParentcommentId" ColumnName="fParentcommentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tFollows">
+      <EntityTypeMapping TypeName="happyModel.tFollow">
+        <MappingFragment StoreEntitySet="tFollow">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fBefollowed" ColumnName="fBefollowed" />
+          <ScalarProperty Name="fFollower" ColumnName="fFollower" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tFriendinvites">
+      <EntityTypeMapping TypeName="happyModel.tFriendinvite">
+        <MappingFragment StoreEntitySet="tFriendinvite">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fFriendId" ColumnName="fFriendId" />
+          <ScalarProperty Name="fBefriendId" ColumnName="fBefriendId" />
+          <ScalarProperty Name="fStatus" ColumnName="fStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tGroups">
+      <EntityTypeMapping TypeName="happyModel.tGroup">
+        <MappingFragment StoreEntitySet="tGroup">
+          <ScalarProperty Name="fGroupId" ColumnName="fGroupId" />
+          <ScalarProperty Name="fCreatorId" ColumnName="fCreatorId" />
+          <ScalarProperty Name="fGroupName" ColumnName="fGroupName" />
+          <ScalarProperty Name="fGrouppic" ColumnName="fGrouppic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tGroupdetails">
+      <EntityTypeMapping TypeName="happyModel.tGroupdetail">
+        <MappingFragment StoreEntitySet="tGroupdetail">
+          <ScalarProperty Name="fGroupId" ColumnName="fGroupId" />
+          <ScalarProperty Name="fMemberId" ColumnName="fMemberId" />
+          <ScalarProperty Name="fManager" ColumnName="fManager" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tManagers">
+      <EntityTypeMapping TypeName="happyModel.tManager">
+        <MappingFragment StoreEntitySet="tManager">
+          <ScalarProperty Name="fManagerId" ColumnName="fManagerId" />
+          <ScalarProperty Name="fAccount" ColumnName="fAccount" />
+          <ScalarProperty Name="fPassword_Salt" ColumnName="fPassword_Salt" />
+          <ScalarProperty Name="fPassword_Hash" ColumnName="fPassword_Hash" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tMembers">
+      <EntityTypeMapping TypeName="happyModel.tMember">
+        <MappingFragment StoreEntitySet="tMember">
+          <ScalarProperty Name="fMemberId" ColumnName="fMemberId" />
+          <ScalarProperty Name="fEmail" ColumnName="fEmail" />
+          <ScalarProperty Name="fName" ColumnName="fName" />
+          <ScalarProperty Name="fPhone" ColumnName="fPhone" />
+          <ScalarProperty Name="fPassword" ColumnName="fPassword" />
+          <ScalarProperty Name="fAddress" ColumnName="fAddress" />
+          <ScalarProperty Name="fCity" ColumnName="fCity" />
+          <ScalarProperty Name="fRegion" ColumnName="fRegion" />
+          <ScalarProperty Name="fPostalcode" ColumnName="fPostalcode" />
+          <ScalarProperty Name="fCountry" ColumnName="fCountry" />
+          <ScalarProperty Name="fFax" ColumnName="fFax" />
+          <ScalarProperty Name="fFirstname" ColumnName="fFirstname" />
+          <ScalarProperty Name="fLastname" ColumnName="fLastname" />
+          <ScalarProperty Name="fUsername" ColumnName="fUsername" />
+          <ScalarProperty Name="fIdPhoto" ColumnName="fIdPhoto" />
+          <ScalarProperty Name="fCoverPhoto" ColumnName="fCoverPhoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tMessages">
+      <EntityTypeMapping TypeName="happyModel.tMessage">
+        <MappingFragment StoreEntitySet="tMessage">
+          <ScalarProperty Name="fMessageId" ColumnName="fMessageId" />
+          <ScalarProperty Name="fSenderId" ColumnName="fSenderId" />
+          <ScalarProperty Name="fReciverId" ColumnName="fReciverId" />
+          <ScalarProperty Name="fDate" ColumnName="fDate" />
+          <ScalarProperty Name="fDescription" ColumnName="fDescription" />
+          <ScalarProperty Name="fPicture" ColumnName="fPicture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNotifies">
+      <EntityTypeMapping TypeName="happyModel.tNotify">
+        <MappingFragment StoreEntitySet="tNotify">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fNotifyfromId" ColumnName="fNotifyfromId" />
+          <ScalarProperty Name="fMemberId" ColumnName="fMemberId" />
+          <ScalarProperty Name="fDescription" ColumnName="fDescription" />
+          <ScalarProperty Name="fHasread" ColumnName="fHasread" />
+          <ScalarProperty Name="fNotifytime" ColumnName="fNotifytime" />
+          <ScalarProperty Name="fNotificate" ColumnName="fNotificate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tOrderdetails">
+      <EntityTypeMapping TypeName="happyModel.tOrderdetail">
+        <MappingFragment StoreEntitySet="tOrderdetail">
+          <ScalarProperty Name="fOrderId" ColumnName="fOrderId" />
+          <ScalarProperty Name="fProductId" ColumnName="fProductId" />
+          <ScalarProperty Name="fQuantity" ColumnName="fQuantity" />
+          <ScalarProperty Name="fUnitPrice" ColumnName="fUnitPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tOrders">
+      <EntityTypeMapping TypeName="happyModel.tOrder">
+        <MappingFragment StoreEntitySet="tOrders">
+          <ScalarProperty Name="fOrderId" ColumnName="fOrderId" />
+          <ScalarProperty Name="fOrderdate" ColumnName="fOrderdate" />
+          <ScalarProperty Name="fCustomerId" ColumnName="fCustomerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tParentcomments">
+      <EntityTypeMapping TypeName="happyModel.tParentcomment">
+        <MappingFragment StoreEntitySet="tParentcomment">
+          <ScalarProperty Name="fCommentId" ColumnName="fCommentId" />
+          <ScalarProperty Name="fPostId" ColumnName="fPostId" />
+          <ScalarProperty Name="fDescription" ColumnName="fDescription" />
+          <ScalarProperty Name="fMemberId" ColumnName="fMemberId" />
+          <ScalarProperty Name="fTime" ColumnName="fTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tPMSuppliers">
+      <EntityTypeMapping TypeName="happyModel.tPMSupplier">
+        <MappingFragment StoreEntitySet="tPMSupplier">
+          <ScalarProperty Name="fId" ColumnName="fId" />
+          <ScalarProperty Name="fOrderId" ColumnName="fOrderId" />
+          <ScalarProperty Name="fProductId" ColumnName="fProductId" />
+          <ScalarProperty Name="fMessage" ColumnName="fMessage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tPosts">
+      <EntityTypeMapping TypeName="happyModel.tPost">
+        <MappingFragment StoreEntitySet="tPost">
+          <ScalarProperty Name="fPostId" ColumnName="fPostId" />
+          <ScalarProperty Name="fMemberId" ColumnName="fMemberId" />
+          <ScalarProperty Name="fGroupId" ColumnName="fGroupId" />
+          <ScalarProperty Name="fTitle" ColumnName="fTitle" />
+          <ScalarProperty Name="fDescription" ColumnName="fDescription" />
+          <ScalarProperty Name="fPosttime" ColumnName="fPosttime" />
+          <ScalarProperty Name="fPersonal" ColumnName="fPersonal" />
+          <ScalarProperty Name="fEarn" ColumnName="fEarn" />
+          <ScalarProperty Name="fHasImage" ColumnName="fHasImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tPostlikeds">
+      <EntityTypeMapping TypeName="happyModel.tPostliked">
+        <MappingFragment StoreEntitySet="tPostliked">
+          <ScalarProperty Name="fLikedId" ColumnName="fLikedId" />
+          <ScalarProperty Name="fPostId" ColumnName="fPostId" />
+          <ScalarProperty Name="fMemberId" ColumnName="fMemberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tProducts">
+      <EntityTypeMapping TypeName="happyModel.tProduct">
+        <MappingFragment StoreEntitySet="tProduct">
+          <ScalarProperty Name="fProductId" ColumnName="fProductId" />
+          <ScalarProperty Name="fProductName" ColumnName="fProductName" />
+          <ScalarProperty Name="fSupplierId" ColumnName="fSupplierId" />
+          <ScalarProperty Name="fCategoryId" ColumnName="fCategoryId" />
+          <ScalarProperty Name="fProductdescription" ColumnName="fProductdescription" />
+          <ScalarProperty Name="fProductpicture" ColumnName="fProductpicture" />
+          <ScalarProperty Name="fProductinstock" ColumnName="fProductinstock" />
+          <ScalarProperty Name="fBrandId" ColumnName="fBrandId" />
+          <ScalarProperty Name="fUnitprice" ColumnName="fUnitprice" />
+          <ScalarProperty Name="fProductsize" ColumnName="fProductsize" />
+          <ScalarProperty Name="fProductlaunch" ColumnName="fProductlaunch" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tReport_Blog">
+      <EntityTypeMapping TypeName="happyModel.tReport_Blog">
+        <MappingFragment StoreEntitySet="tReport_Blog">
+          <ScalarProperty Name="fReportId" ColumnName="fReportId" />
+          <ScalarProperty Name="fMemberId" ColumnName="fMemberId" />
+          <ScalarProperty Name="fPostId" ColumnName="fPostId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tSuppliers">
+      <EntityTypeMapping TypeName="happyModel.tSupplier">
+        <MappingFragment StoreEntitySet="tSupplier">
+          <ScalarProperty Name="fSupplierId" ColumnName="fSupplierId" />
+          <ScalarProperty Name="fMemberId" ColumnName="fMemberId" />
+          <ScalarProperty Name="fName" ColumnName="fName" />
+          <ScalarProperty Name="fStatus" ColumnName="fStatus" />
+          <ScalarProperty Name="fJointime" ColumnName="fJointime" />
+          <ScalarProperty Name="fDiscount" ColumnName="fDiscount" />
+          <ScalarProperty Name="fGrade" ColumnName="fGrade" />
+          <ScalarProperty Name="fDescription" ColumnName="fDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tTags">
+      <EntityTypeMapping TypeName="happyModel.tTag">
+        <MappingFragment StoreEntitySet="tTag">
+          <ScalarProperty Name="fTagId" ColumnName="fTagId" />
+          <ScalarProperty Name="fDescription" ColumnName="fDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="tFavoritepost" TypeName="happyModel.tFavoritepost" StoreEntitySet="tFavoritepost">
+      <EndProperty Name="tMember">
+        <ScalarProperty Name="fMemberId" ColumnName="fMemberId" />
+      </EndProperty>
+      <EndProperty Name="tPost">
+        <ScalarProperty Name="fPostId" ColumnName="fPostId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="tTagdetails" TypeName="happyModel.tTagdetails" StoreEntitySet="tTagdetails">
+      <EndProperty Name="tPost">
+        <ScalarProperty Name="fPostId" ColumnName="fPostId" />
+      </EndProperty>
+      <EndProperty Name="tTag">
+        <ScalarProperty Name="fTagId" ColumnName="fTagId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

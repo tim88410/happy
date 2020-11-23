@@ -1,0 +1,100 @@
+﻿
+
+@model SlnBlogAndShop.ViewModel.CProduct
+@{
+    ViewBag.Title = "updateproduct";
+
+}
+
+@using (Html.BeginForm("updateproduct", "ShopMa", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="page-content">
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">更新商品資訊</h6>
+                        <form>
+                            <div class="hidden">
+                                @*<label for="exampleInputText1">商品編號</label>*@
+                                <div class="col-md-10">
+                                    <input type="hidden" name="fProductId" value="@Model.fProductId" />
+                                    @*@Html.EditorFor(model => model.fProductId, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.fProductId, "", new { @class = "text-danger" })*@
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="exampleInputText1">商品名稱</label>
+                                <div>
+                                    @Html.EditorFor(model => model.fProductName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.fProductName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleinstock">商品價格</label>
+                                <div>
+                                    @Html.EditorFor(model => model.fUnitprice, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.fUnitprice, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">商品描述</label>
+                                <input type="text" id="fProductdescription" name="fProductdescription" value="@(Model.fProductdescription)" class="form-control" />
+                                @*<textarea class="form-control" id="fProductdescription" name="fProductdescription" rows="5" >
+
+                                    </textarea>*@
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputText1">商品庫存</label>
+                                <div>
+                                    @Html.EditorFor(model => model.fProductinstock, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.fProductinstock, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect2">商品類別</label>
+                                <select class="form-control" id="fCategoryId" name="fCategoryId">
+                                    <option value="1" @(Model.fCategoryId == 1 ? "selected" : "")>上身</option>
+                                    <option value="2" @(Model.fCategoryId == 2 ? "selected" : "")>下身</option>
+                                    <option value="3" @(Model.fCategoryId == 3 ? "selected" : "")>鞋子</option>
+                                    <option value="4" @(Model.fCategoryId == 4 ? "selected" : "")>配件</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">商品規格</label>
+
+                                <select class="form-control" id="examplesize" name="fexamplesize">
+                                    <option selected disabled>尺寸</option>
+                                    <option value="S" @(Model.fexamplesize == "S" ? "selected" : "")>S</option>
+                                    <option value="M" @(Model.fexamplesize == "M" ? "selected" : "")>M</option>
+                                    <option value="L" @(Model.fexamplesize == "L" ? "selected" : "")>L</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>圖片</label>
+                                <img src="/Content/Shop/ProductPic/@Model.fProductpicture" width="80" height="60" />
+
+                                <input type="file" name="image">
+
+                            </div>
+                            <button class="btn btn-primary" type="submit">儲存</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+}
+
+
+
+
+

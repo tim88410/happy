@@ -1,0 +1,101 @@
+﻿@using prjBlog.Models
+@{
+    ViewBag.Title = "happyLogin";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>Winku Social Network Toolkit</title>
+
+    <link rel="icon" href="images/fav.png" type="image/png" sizes="16x16">
+
+    <link rel="stylesheet" href="~/Content/Blog//main.min.css">
+    <link rel="stylesheet" href="~/Content/Blog//style.css">
+    <link href="~/Content/Blog//bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/Blog//color.css">
+    <link rel="stylesheet" href="~/Content/Blog//croppie.css">
+    @*<link rel="stylesheet" href="css/responsive.css">*@
+
+    <script src="~/Scripts/Blog/jquery3.5.1.js"></script>
+    <script src="https://kit.fontawesome.com/1cdd413fb3.js" crossorigin="anonymous"></script>
+    <script src="~/Scripts/Blog/bootstrap.js"></script>
+    <script src="~/Scripts/Blog/croppie.min.js"></script>
+</head>
+<body>
+    <!--<div class="se-pre-con"></div>-->
+    <div class="theme-layout">
+        <div class="container-fluid pdng0">
+            <div class="row merged">
+                <!--left col-->
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="land-featurearea">
+                        <div class="land-meta">
+                            <h1><a href="~/WebMa/WebMa_homepage">Winku</a></h1>
+                            <p>
+                                Winku is free to use for as long as you want with two active projects.
+                            </p>
+                            <div class="friend-logo">
+                                <span><img src="" alt=""></span>
+                            </div>
+                            <a href="#" title="" class="folow-me">Follow Us on</a>
+                        </div>
+                    </div>
+                </div>
+                <!--left col-->
+                <!--right col-->
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="login-reg-bg">
+                        <div class="log-reg-area sign">
+                            <h2 class="log-title">Login</h2>
+                            <p>
+                                Don’t use Winku Yet? <a href="#" title="">Take the tour</a> or <a href="#" title="">Join now</a>
+                            </p>
+                            <form method="post" >
+                                <div class="form-group">
+                                    <input type="text" id="input" required="required" name="txtUsername" />
+                                    <label class="control-label" for="input">Username</label><i class="mtrl-select"></i>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" required="required" name="txtPassword" />
+                                    <label class="control-label" for="input">Password</label><i class="mtrl-select"></i>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked="checked" /><i class="check-box"></i>Always Remember Me.
+                                    </label>
+                                </div>
+                                <a href="#" title="" class="forgot-pwd">忘記密碼?</a>
+                                <div class="m-3">
+                                    <button class="btn btn-primary signin" type="submit"><span>登入</span></button>
+                                </div>
+                                <div class="m-3">
+                                    <hr />
+                                    @Html.ActionLink("一般帳號註冊", "createMember", "Blog", "", new { @class = "btn btn-success fas fa-user" })
+                                    @Html.ActionLink("廠商帳號註冊", "createSupplier", "Blog", "", new { @class = "btn btn-success fa fa-industry" })
+                                </div>
+                                <div class="m-3">
+                                    <button class="btn btn-primary" type="button"><i class="fa fa-facebook"></i><span> Facebook</span></button>
+                                    <button class="btn btn-outline-dark" type="button" onclick="GoogleLogin();"><i class="fa fa-twitter"></i><span> Twitter</span></button>
+                                    <button class="btn btn-outline-primary" type="button"><i class="fa fa-google"></i><span> Google</span></button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <!--right col-->
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/Blog/main.min.js"></script>
+    <script src="~/Scripts/Blog/script.js"></script>
+
+</body>
+</html>

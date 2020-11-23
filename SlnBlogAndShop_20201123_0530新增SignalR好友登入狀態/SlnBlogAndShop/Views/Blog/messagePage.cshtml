@@ -1,0 +1,500 @@
+﻿@using prjBlog.Models
+@using prjBlog.ViewModel
+@using SlnBlogAndShop.ViewModel
+
+@{
+    ViewBag.Title = "messagePage";
+
+    tPost post = Session[CDictionary.postdetails] as tPost;
+    simplePostJson articlecontext = Session[CDictionary.articlecontext] as simplePostJson;
+    TMember member = Session[CDictionary.SK_LOGINED_USER] as TMember;
+
+}
+
+<section>
+    <div class="gap gray-bg">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row" id="page-contents">
+                        <!-- left sidebar -->
+                        <div class="col-lg-3">
+                            <aside class="sidebar static">
+                                <!-- 捷徑 -->
+                                <div class="widget">
+                                    <h4 class="widget-title">捷徑</h4>
+                                    <ul class="naves">
+                                        <li>
+                                            <i class="fas fa-file-invoice"></i>
+                                            <a href="personalPage" title="">個人主頁</a>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-user-friends"></i>
+                                            <a href="" title="" data-toggle="modal" data-target="#friendModal">朋友 / 追蹤</a>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-image"></i>
+                                            <a href="albumPage" title="">相片 / 影片</a>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-users"></i>
+                                            <a href="groupPage" title="">社團</a>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-calendar"></i>
+                                            <a href="activityPage" title="">活動</a>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-comments"></i>
+                                            <a href="messages.html" title="">訊息</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- 捷徑 -->
+                                <!-- 廣告 -->
+                                <div class="widget stick-widget">
+                                    <h4 class="widget-title">推薦商品</h4>
+                                    <div class="product-box">
+                                        <figure>
+                                            <span class="new">New</span>
+                                            <img src="~/images/resources/shop1.jpg" alt="">
+                                        </figure>
+                                        <div class="product-name ml-2">
+                                            <h5>
+                                                <a href="#" title="">GSound wireless Headphone</a>
+                                            </h5>
+                                            <!--<ul class="starz">
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                            </ul>-->
+                                            <div class="prices ml-1">
+                                                <ins>$29</ins>
+                                                <del>$39</del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 廣告 -->
+                            </aside>
+                        </div>
+                        <!-- left sidebar -->
+                        <!-- 中間區 -->
+                        <div class="col-lg-6">
+                            <!-- 聊天室 -->
+                            <div class="central-meta">
+                                <div class="messages">
+                                    <h5 class="f-title"><i class="ti-bell"></i>All Messages <span class="more-options"><i class="fa fa-ellipsis-h"></i></span></h5>
+                                    <div class="message-box">
+                                        <ul class="peoples">
+                                            <li>
+                                                <figure>
+                                                    <img src="images/resources/friend-avatar2.jpg" alt="">
+                                                    <span class="status f-online"></span>
+                                                </figure>
+                                                <div class="people-name">
+                                                    <span>Molly cyrus</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <figure>
+                                                    <img src="images/resources/friend-avatar3.jpg" alt="">
+                                                    <span class="status f-away"></span>
+                                                </figure>
+                                                <div class="people-name">
+                                                    <span>Andrew</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="peoples-mesg-box">
+                                            <div class="conversation-head">
+                                                <figure><img src="images/resources/friend-avatar.jpg" alt=""></figure>
+                                                <span>jason bourne <i>online</i></span>
+                                            </div>
+                                            <ul class="chatting-area">
+                                                <li class="you">
+                                                    <figure><img src="images/resources/userlist-2.jpg" alt=""></figure>
+                                                    <p>what's liz short for? :)</p>
+                                                </li>
+                                                <li class="me">
+                                                    <figure><img src="images/resources/userlist-1.jpg" alt=""></figure>
+                                                    <p>Elizabeth lol</p>
+                                                </li>
+                                                <li class="me">
+                                                    <figure><img src="images/resources/userlist-1.jpg" alt=""></figure>
+                                                    <p>wanna know whats my second guess was?</p>
+                                                </li>
+                                                <li class="you">
+                                                    <figure><img src="images/resources/userlist-2.jpg" alt=""></figure>
+                                                    <p>yes</p>
+                                                </li>
+                                                <li class="me">
+                                                    <figure><img src="images/resources/userlist-1.jpg" alt=""></figure>
+                                                    <p>Disney's the lizard king</p>
+                                                </li>
+                                                <li class="me">
+                                                    <figure><img src="images/resources/userlist-1.jpg" alt=""></figure>
+                                                    <p>i know him 5 years ago</p>
+                                                </li>
+                                                <li class="you">
+                                                    <figure><img src="images/resources/userlist-2.jpg" alt=""></figure>
+                                                    <p>coooooooooool dude ;)</p>
+                                                </li>
+                                            </ul>
+                                            <div class="message-text-container">
+                                                <form method="post">
+                                                    <textarea></textarea>
+                                                    <button title="send"><i class="fa fa-paper-plane"></i></button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 聊天室 -->
+                        </div>
+                        <!-- 中間區 -->
+                        <!-- right sidebar -->
+                        <div class="col-lg-3">
+                            <aside class="sidebar static">
+                                <!-- 追蹤者 -->
+                                <div class="widget">
+                                    <h4 class="widget-title">追蹤者</h4>
+                                    <ul class="followers">
+                                        <li>
+                                            <figure><img src="~/images/resources/friend-avatar2.jpg" alt=""></figure>
+                                            <div class="friend-meta">
+                                                <h4>
+                                                    <a href="time-line.html" title="">Kelly Bill</a>
+                                                </h4>
+                                                <a href="#" title="" class="underline">加為好友</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure><img src="~/images/resources/friend-avatar4.jpg" alt=""></figure>
+                                            <div class="friend-meta">
+                                                <h4>
+                                                    <a href="time-line.html" title="">Issabel</a>
+                                                </h4>
+                                                <a href="#" title="" class="underline">加為好友</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure><img src="~/images/resources/friend-avatar6.jpg" alt=""></figure>
+                                            <div class="friend-meta">
+                                                <h4>
+                                                    <a href="time-line.html" title="">Andrew</a>
+                                                </h4>
+                                                <a href="#" title="" class="underline">加為好友</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure><img src="~/images/resources/friend-avatar8.jpg" alt=""></figure>
+                                            <div class="friend-meta">
+                                                <h4>
+                                                    <a href="time-line.html" title="">Sophia</a>
+                                                </h4>
+                                                <a href="#" title="" class="underline">加為好友</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure><img src="~/images/resources/friend-avatar3.jpg" alt=""></figure>
+                                            <div class="friend-meta">
+                                                <h4>
+                                                    <a href="time-line.html" title="">Allen</a>
+                                                </h4>
+                                                <a href="#" title="" class="underline">加為好友</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- 追蹤者 -->
+                                <!-- 好友 -->
+                                <div class="widget stick-widget friendz-list">
+                                    <h4 class="widget-title">好友</h4>
+                                    <ul id="people-list" class="friendz-list mt-0">
+                                        <li>
+                                            <figure>
+                                                <img src="~/images/resources/friend-avatar.jpg" alt="">
+                                                <span class="status f-online"></span>
+                                            </figure>
+                                            <div class="friendz-meta">
+                                                <a href="time-line.html">bucky barnes</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure>
+                                                <img src="~/images/resources/friend-avatar2.jpg" alt="">
+                                                <span class="status f-away"></span>
+                                            </figure>
+                                            <div class="friendz-meta">
+                                                <a href="time-line.html">Sarah Loren</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure>
+                                                <img src="~/images/resources/friend-avatar3.jpg" alt="">
+                                                <span class="status f-off"></span>
+                                            </figure>
+                                            <div class="friendz-meta">
+                                                <a href="time-line.html">jason borne</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure>
+                                                <img src="~/images/resources/friend-avatar4.jpg" alt="">
+                                                <span class="status f-off"></span>
+                                            </figure>
+                                            <div class="friendz-meta">
+                                                <a href="time-line.html">Cameron diaz</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure>
+                                                <img src="~/images/resources/friend-avatar5.jpg" alt="">
+                                                <span class="status f-online"></span>
+                                            </figure>
+                                            <div class="friendz-meta">
+                                                <a href="time-line.html">daniel warber</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure>
+                                                <img src="~/images/resources/friend-avatar6.jpg" alt="">
+                                                <span class="status f-away"></span>
+                                            </figure>
+                                            <div class="friendz-meta">
+                                                <a href="time-line.html">andrew</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure>
+                                                <img src="~/images/resources/friend-avatar7.jpg" alt="">
+                                                <span class="status f-off"></span>
+                                            </figure>
+                                            <div class="friendz-meta">
+                                                <a href="time-line.html">amy watson</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure>
+                                                <img src="~/images/resources/friend-avatar5.jpg" alt="">
+                                                <span class="status f-online"></span>
+                                            </figure>
+                                            <div class="friendz-meta">
+                                                <a href="time-line.html">daniel warber</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <figure>
+                                                <img src="~/images/resources/friend-avatar2.jpg" alt="">
+                                                <span class="status f-away"></span>
+                                            </figure>
+                                            <div class="friendz-meta">
+                                                <a href="time-line.html">Sarah Loren</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="chat-box">
+                                        <div class="chat-head">
+                                            <span class="status f-online"></span>
+                                            <h6>Bucky Barnes</h6>
+                                            <div class="more">
+                                                <span><i class="ti-more-alt"></i></span>
+                                                <span class="close-mesage"><i class="ti-close"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="chat-list">
+                                            <ul>
+                                                <li class="me">
+                                                    <div class="chat-thumb">
+                                                        <img src="~/images/resources/chatlist1.jpg" alt="">
+                                                    </div>
+                                                    <div class="notification-event">
+                                                        <span class="chat-message-item">
+                                                            Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
+                                                        </span>
+                                                        <span class="notification-date"><time datetime="2004-07-24T18:18" class="entry-date updated">Yesterday at 8:10pm</time></span>
+                                                    </div>
+                                                </li>
+                                                <li class="you">
+                                                    <div class="chat-thumb">
+                                                        <img src="~/images/resources/chatlist2.jpg" alt="">
+                                                    </div>
+                                                    <div class="notification-event">
+                                                        <span class="chat-message-item">
+                                                            Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
+                                                        </span>
+                                                        <span class="notification-date"><time datetime="2004-07-24T18:18" class="entry-date updated">Yesterday at 8:10pm</time></span>
+                                                    </div>
+                                                </li>
+                                                <li class="me">
+                                                    <div class="chat-thumb">
+                                                        <img src="~/images/resources/chatlist1.jpg" alt="">
+                                                    </div>
+                                                    <div class="notification-event">
+                                                        <span class="chat-message-item">
+                                                            Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
+                                                        </span>
+                                                        <span class="notification-date"><time datetime="2004-07-24T18:18" class="entry-date updated">Yesterday at 8:10pm</time></span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <form class="text-box">
+                                                <textarea placeholder="Post enter to post..."></textarea>
+                                                <div class="add-smiles">
+                                                    <span title="add icon" class="em em-expressionless"></span>
+                                                </div>
+                                                <div class="smiles-bunch">
+                                                    <i class="em em---1"></i>
+                                                    <i class="em em-smiley"></i>
+                                                    <i class="em em-anguished"></i>
+                                                    <i class="em em-laughing"></i>
+                                                    <i class="em em-angry"></i>
+                                                    <i class="em em-astonished"></i>
+                                                    <i class="em em-blush"></i>
+                                                    <i class="em em-disappointed"></i>
+                                                    <i class="em em-worried"></i>
+                                                    <i class="em em-kissing_heart"></i>
+                                                    <i class="em em-rage"></i>
+                                                    <i class="em em-stuck_out_tongue"></i>
+                                                </div>
+                                                <button type="submit"></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 好友 -->
+                            </aside>
+                        </div>
+                        <!-- right sidebar -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--friend modal-->
+<div id="friendModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable ">
+        <div class="modal-content">
+            <div class="modal-header row align-items-center" style="background-color:powderblue;">
+                <div class="align-content-center">
+                    <h4 class="modal-title" id="exampleModalLabel" style="margin-left:15px;">好友</h4>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="central-meta">
+                    <div class="frnds">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="active" href="#frends" data-toggle="tab">My Friends</a>
+                                <span>55</span>
+                            </li>
+                            <li class="nav-item">
+                                <a class="" href="#frends-req" data-toggle="tab">Friend Requests</a>
+                                <span>60</span>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active fade show " id="frends">
+                                <ul class="nearby-contct">
+                                    <li>
+                                        <div class="nearly-pepls">
+                                            <figure>
+                                                <a href="time-line.html" title=""><img src="~/images/resources/friend-avatar9.jpg" alt=""></a>
+                                            </figure>
+                                            <div class="pepl-info">
+                                                <h4>
+                                                    <a href="time-line.html" title="">jhon kates</a>
+                                                </h4>
+                                                <span>ftv model</span>
+                                                <a href="#" title="" class="add-butn more-action" data-ripple="">unfriend</a>
+                                                <a href="#" title="" class="add-butn" data-ripple="">add friend</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="nearly-pepls">
+                                            <figure>
+                                                <a href="time-line.html" title=""><img src="~/images/resources/nearly1.jpg" alt=""></a>
+                                            </figure>
+                                            <div class="pepl-info">
+                                                <h4>
+                                                    <a href="time-line.html" title="">sophia Gate</a>
+                                                </h4>
+                                                <span>tv actresses</span>
+                                                <a href="#" title="" class="add-butn more-action" data-ripple="">unfriend</a>
+                                                <a href="#" title="" class="add-butn" data-ripple="">add friend</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="nearly-pepls">
+                                            <figure>
+                                                <a href="time-line.html" title=""><img src="~/images/resources/nearly5.jpg" alt=""></a>
+                                            </figure>
+                                            <div class="pepl-info">
+                                                <h4>
+                                                    <a href="time-line.html" title="">Amy watson</a>
+                                                </h4>
+                                                <span>Study in university</span>
+                                                <a href="#" title="" class="add-butn more-action" data-ripple="">unfriend</a>
+                                                <a href="#" title="" class="add-butn" data-ripple="">add friend</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="lodmore">
+                                    <button class="btn-view btn-load-more"></button>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="frends-req">
+                                <ul class="nearby-contct">
+                                    <li>
+                                        <div class="nearly-pepls">
+                                            <figure>
+                                                <a href="time-line.html" title=""><img src="~/images/resources/nearly5.jpg" alt=""></a>
+                                            </figure>
+                                            <div class="pepl-info">
+                                                <h4>
+                                                    <a href="time-line.html" title="">Amy watson</a>
+                                                </h4>
+                                                <span>ftv model</span>
+                                                <a href="#" title="" class="add-butn more-action" data-ripple="">delete Request</a>
+                                                <a href="#" title="" class="add-butn" data-ripple="">Confirm</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="nearly-pepls">
+                                            <figure>
+                                                <a href="time-line.html" title=""><img src="~/images/resources/nearly1.jpg" alt=""></a>
+                                            </figure>
+                                            <div class="pepl-info">
+                                                <h4>
+                                                    <a href="time-line.html" title="">sophia Gate</a>
+                                                </h4>
+                                                <span>ftv model</span>
+                                                <a href="#" title="" class="add-butn more-action" data-ripple="">delete Request</a>
+                                                <a href="#" title="" class="add-butn" data-ripple="">Confirm</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <button class="btn-view btn-load-more"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--friend modal-->
+<script src="~/Scripts/Blog/BlogPost.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

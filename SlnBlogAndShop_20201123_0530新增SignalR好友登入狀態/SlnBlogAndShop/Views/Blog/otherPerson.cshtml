@@ -1,0 +1,1023 @@
+﻿@model SlnBlogAndShop.tMember
+@{
+    ViewBag.Title = "otherPerson";
+
+
+}
+
+<!--Top  Cover div-->
+<section>
+    <div class="feature-photo">
+        <figure><img id="coverphoto" src="~/images/resources/timeline-1.jpg" alt=""></figure>
+        <!--<div class="add-btn">
+            <span>1205 followers</span>
+            <a href="#" title="" data-ripple="">Add Friend</a>
+        </div>-->
+        <form class="edit-phto">
+            <i class="fa fa-camera-retro"></i>
+            <label class="fileContainer" data-toggle="modal" data-target="#editcoverphoto">
+                Edit Cover Photo
+            </label>
+        </form>
+        <div class="container-fluid">
+            <div class="row merged">
+                <div class="col-lg-2 col-sm-3">
+                    <div class="user-avatar">
+                        <figure>
+                            <img src="~/images/IdPhoto/@Model.fIdPhoto" alt="" id="personalpic">
+                            <span class="edit-phto" data-toggle="modal" data-target="#editpersonalphoto">
+                                <i class="fa fa-camera-retro"></i>
+                                <label class="fileContainer">
+                                    Edit Display Photo
+                                </label>
+                            </span>
+                        </figure>
+
+                    </div>
+                </div>
+                <div class="col-lg-10 col-sm-9">
+                    <div class="timeline-info">
+                        <ul>
+                            <li class="admin-name">
+                                <h5>Janice Griffith</h5>
+                            </li>
+                            <li>
+                                <a class="active" href="~/Blog/personalPage" title="" data-ripple="">個人主頁</a>
+                                <a class="" href="~/Blog/groupPage" title="" data-ripple="">社團主頁</a>
+                                <a class="" href="~/Blog/activityPage" title="" data-ripple="">活動主頁</a>
+                                <a class="" href="~/Blog/albumPage" title="" data-ripple="">照片 / 影片</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Top Cover div-->
+<!--Main -->
+<section>
+    <div class="gap gray-bg">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row" id="page-contents">
+                        <!--left col div-->
+                        <div class="col-lg-3">
+                            <aside class="sidebar static">
+                                <div class="widget">
+                                    <h4 class="widget-title">個人主頁資訊</h4>
+                                    <ul class="naves">
+                                        <li>
+                                            <i class="fas fa-user"></i>
+                                            <a href="" title="" class="m-1" data-toggle="modal" data-target="#personalInfoModal">個人資訊</a>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-user-friends"></i>
+                                            <a href="" title="" data-toggle="modal" data-target="#friendModal">朋友 / 追蹤</a>
+                                        </li>
+                                        <!--<li>
+                                            <i class="fas fa-gift"></i>
+                                            <a href="" title="" class="m-1" data-toggle="modal" data-target="#postModal">葉配商品</a>
+                                        </li>-->
+                                        <li>
+                                            <i class="fas fa-coins"></i>
+                                            <a href="" title="" class="m-1" data-toggle="modal" data-target="#pointModal">點數資訊</a>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <a href="" title="" class="m-1" data-toggle="modal" data-target="#postModal">行事曆編輯</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="widget">
+                                    <h4 class="widget-title">行事曆</h4>
+
+                                </div>
+                            </aside>
+                        </div>
+                        <!--left col div-->
+                        <!--center col div-->
+                        <div class="col-lg-9">
+                            <div class="loadMore">
+                                <div class="central-meta item">
+                                    <!-- add post new box -->
+                                    <div class="new-postbox">
+                                        <figure>
+                                            <img src="~/images/IdPhoto/@Model.fIdPhoto" alt="">
+                                        </figure>
+                                        <div class="newpst-input">
+                                            <form method="post">
+                                                <textarea rows="2" placeholder="write something"></textarea>
+                                                <div class="attachments">
+                                                    <ul>
+                                                        <li>
+                                                            <i class="fa fa-image"></i>
+                                                            <label class="fileContainer">
+                                                                <input type="file">
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa-video-camera"></i>
+                                                            <label class="fileContainer">
+                                                                <input type="file">
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa-camera"></i>
+                                                            <label class="fileContainer">
+                                                                <input type="file">
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#postModal">Blog Mode</button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="submit" class="btn btn-primary btn-sm">Publish</button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- add post new box -->
+                                <div class="central-meta item">
+                                    <div class="user-post">
+                                        <div class="friend-info">
+                                            <figure>
+                                                <img src="~/images/resources/friend-avatar10.jpg" alt="">
+                                            </figure>
+                                            <div class="friend-name">
+                                                <ins><a href="time-line.html" title="">Janice Griffith</a></ins>
+                                                <span>published: june,2 2018 19:PM</span>
+                                            </div>
+                                            <div class="description">
+
+                                                <p>
+                                                    World's most beautiful car in Curabitur
+                                                    <a href="#" title="">#test drive booking !</a> the most beatuiful car available in america and the saudia arabia, you can book your test drive by our official website
+                                                </p>
+                                            </div>
+                                            <div class="post-meta">
+                                                <div class="linked-image align-left">
+                                                    <a href="#" title=""><img src="~/images/resources/page1.jpg" alt=""></a>
+                                                </div>
+                                                <div class="detail">
+                                                    <span>Love Maid - ChillGroves</span>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur ipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua... </p>
+                                                    <a href="#" title="">www.sample.com</a>
+                                                </div>
+                                                <div class="we-video-info">
+                                                    <ul>
+                                                        <li>
+                                                            <span class="like" data-toggle="tooltip" title="讚">
+                                                                <i class="fas fa-heart"></i>
+                                                                <ins>2.2k</ins>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#a">
+                                                                <span class="comment" data-toggle="tooltip" title="留言">
+                                                                    <i class="far fa-comment"></i>
+                                                                    <ins>52</ins>
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <span class="" data-toggle="tooltip" title="分享">
+                                                                <i class="fa fa-share-square"></i>
+                                                                <ins>1.2k</ins>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="" data-toggle="tooltip" title="檢舉">
+                                                                <i class="fas fa-flag"></i>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="central-meta item">
+                                    <div class="user-post">
+                                        <div class="friend-info">
+                                            <figure>
+                                                <img src="~/images/resources/friend-avatar10.jpg" alt="">
+                                            </figure>
+                                            <div class="friend-name">
+                                                <ins><a href="time-line.html" title="">Janice Griffith</a></ins>
+                                                <span>published: june,2 2018 19:PM</span>
+                                            </div>
+                                            <div class="post-meta">
+                                                <img src="~/images/resources/user-post.jpg" alt="">
+                                                <div class="we-video-info">
+                                                    <ul>
+                                                        <li>
+                                                            <span class="like" data-toggle="tooltip" title="讚">
+                                                                <i class="fas fa-heart"></i>
+                                                                <ins>2.2k</ins>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#a">
+                                                                <span class="comment" data-toggle="tooltip" title="留言">
+                                                                    <i class="far fa-comment"></i>
+                                                                    <ins>52</ins>
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <span class="" data-toggle="tooltip" title="分享">
+                                                                <i class="fa fa-share-square"></i>
+                                                                <ins>1.2k</ins>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="" data-toggle="tooltip" title="檢舉">
+                                                                <i class="fas fa-flag"></i>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="description">
+
+                                                    <p>
+                                                        Curabitur world's most beautiful car in
+                                                        <a href="#" title="">#test drive booking !</a> the most beatuiful car available in america and the saudia arabia, you can book your test drive by our official website
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="coment-area">
+                                            <ul class="we-comet">
+                                                <li>
+                                                    <div class="comet-avatar">
+                                                        <img src="~/images/resources/comet-1.jpg" alt="">
+                                                    </div>
+                                                    <div class="we-comment">
+                                                        <div class="coment-head">
+                                                            <h5>
+                                                                <a href="time-line.html" title="">Jason borne</a>
+                                                            </h5>
+                                                            <span>1 year ago</span>
+                                                            <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+                                                        </div>
+                                                        <p>we are working for the dance and sing songs. this car is very awesome for the youngster. please vote this car and like our post</p>
+                                                    </div>
+                                                    <ul>
+                                                        <li>
+                                                            <div class="comet-avatar">
+                                                                <img src="~/images/resources/comet-2.jpg" alt="">
+                                                            </div>
+                                                            <div class="we-comment">
+                                                                <div class="coment-head">
+                                                                    <h5>
+                                                                        <a href="time-line.html" title="">alexendra dadrio</a>
+                                                                    </h5>
+                                                                    <span>1 month ago</span>
+                                                                    <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+                                                                </div>
+                                                                <p>
+                                                                    yes, really very awesome car i see the features of this car in the official website of
+                                                                    <a href="#" title="">#Mercedes-Benz</a> and really impressed :-)
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="comet-avatar">
+                                                                <img src="~/images/resources/comet-3.jpg" alt="">
+                                                            </div>
+                                                            <div class="we-comment">
+                                                                <div class="coment-head">
+                                                                    <h5>
+                                                                        <a href="time-line.html" title="">Olivia</a>
+                                                                    </h5>
+                                                                    <span>16 days ago</span>
+                                                                    <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+                                                                </div>
+                                                                <p>i like lexus cars, lexus cars are most beautiful with the awesome features, but this car is really outstanding than lexus</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="comet-avatar">
+                                                        <img src="~/images/resources/comet-1.jpg" alt="">
+                                                    </div>
+                                                    <div class="we-comment">
+                                                        <div class="coment-head">
+                                                            <h5>
+                                                                <a href="time-line.html" title="">Donald Trump</a>
+                                                            </h5>
+                                                            <span>1 week ago</span>
+                                                            <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+                                                        </div>
+                                                        <p>
+                                                            we are working for the dance and sing songs. this video is very awesome for the youngster. please vote this video and like our channel
+                                                            <i class="em em-smiley"></i>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#" title="" class="showmore underline">more comments</a>
+                                                </li>
+                                                <li class="post-comment">
+                                                    <div class="comet-avatar">
+                                                        <img src="~/images/resources/comet-1.jpg" alt="">
+                                                    </div>
+                                                    <div class="post-comt-box">
+                                                        <form method="post">
+                                                            <textarea placeholder="Post your comment"></textarea>
+                                                            <div class="add-smiles">
+                                                                <span class="em em-expressionless" title="add icon"></span>
+                                                            </div>
+                                                            <div class="smiles-bunch">
+                                                                <i class="em em---1"></i>
+                                                                <i class="em em-smiley"></i>
+                                                                <i class="em em-anguished"></i>
+                                                                <i class="em em-laughing"></i>
+                                                                <i class="em em-angry"></i>
+                                                                <i class="em em-astonished"></i>
+                                                                <i class="em em-blush"></i>
+                                                                <i class="em em-disappointed"></i>
+                                                                <i class="em em-worried"></i>
+                                                                <i class="em em-kissing_heart"></i>
+                                                                <i class="em em-rage"></i>
+                                                                <i class="em em-stuck_out_tongue"></i>
+                                                            </div>
+                                                            <button type="submit"></button>
+                                                        </form>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="central-meta item">
+                                    <div class="user-post">
+                                        <div class="friend-info">
+                                            <figure>
+                                                <img src="~/images/resources/friend-avatar10.jpg" alt="">
+                                            </figure>
+                                            <div class="friend-name">
+                                                <ins><a href="time-line.html" title="">Janice Griffith</a></ins>
+                                                <span>published: june,2 2018 19:PM</span>
+                                            </div>
+                                            <div class="post-meta">
+                                                <iframe src="https://player.vimeo.com/video/15232052" height="315" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                                <div class="we-video-info">
+                                                    <ul>
+                                                        <li>
+                                                            <span class="like" data-toggle="tooltip" title="讚">
+                                                                <i class="fas fa-heart"></i>
+                                                                <ins>2.2k</ins>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#a">
+                                                                <span class="comment" data-toggle="tooltip" title="留言">
+                                                                    <i class="far fa-comment"></i>
+                                                                    <ins>52</ins>
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <span class="" data-toggle="tooltip" title="分享">
+                                                                <i class="fa fa-share-square"></i>
+                                                                <ins>1.2k</ins>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="" data-toggle="tooltip" title="檢舉">
+                                                                <i class="fas fa-flag"></i>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="description">
+
+                                                    <p>
+                                                        Lonely Cat Enjoying in Summer Curabitur
+                                                        <a href="#" title="">#mypage</a> ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="coment-area">
+                                            <ul class="we-comet">
+                                                <li>
+                                                    <div class="comet-avatar">
+                                                        <img src="~/images/resources/comet-1.jpg" alt="">
+                                                    </div>
+                                                    <div class="we-comment">
+                                                        <div class="coment-head">
+                                                            <h5>
+                                                                <a href="time-line.html" title="">Jason borne</a>
+                                                            </h5>
+                                                            <span>1 year ago</span>
+                                                            <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+                                                        </div>
+                                                        <p>we are working for the dance and sing songs. this video is very awesome for the youngster. please vote this video and like our channel</p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="comet-avatar">
+                                                        <img src="~/images/resources/comet-2.jpg" alt="">
+                                                    </div>
+                                                    <div class="we-comment">
+                                                        <div class="coment-head">
+                                                            <h5>
+                                                                <a href="time-line.html" title="">Sophia</a>
+                                                            </h5>
+                                                            <span>1 week ago</span>
+                                                            <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+                                                        </div>
+                                                        <p>
+                                                            we are working for the dance and sing songs. this video is very awesome for the youngster.
+                                                            <i class="em em-smiley"></i>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <a href="#" title="" class="showmore underline">more comments</a>
+                                                </li>
+                                                <li class="post-comment">
+                                                    <div class="comet-avatar">
+                                                        <img src="~/images/resources/comet-2.jpg" alt="">
+                                                    </div>
+                                                    <div class="post-comt-box">
+                                                        <form method="post">
+                                                            <textarea placeholder="Post your comment"></textarea>
+                                                            <div class="add-smiles">
+                                                                <span class="em em-expressionless" title="add icon"></span>
+                                                            </div>
+                                                            <div class="smiles-bunch">
+                                                                <i class="em em---1"></i>
+                                                                <i class="em em-smiley"></i>
+                                                                <i class="em em-anguished"></i>
+                                                                <i class="em em-laughing"></i>
+                                                                <i class="em em-angry"></i>
+                                                                <i class="em em-astonished"></i>
+                                                                <i class="em em-blush"></i>
+                                                                <i class="em em-disappointed"></i>
+                                                                <i class="em em-worried"></i>
+                                                                <i class="em em-kissing_heart"></i>
+                                                                <i class="em em-rage"></i>
+                                                                <i class="em em-stuck_out_tongue"></i>
+                                                            </div>
+                                                            <button type="submit"></button>
+                                                        </form>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- centerl meta -->
+                        <!--center col div-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Main -->
+<!--post modal-->
+<div id="postModal" class="modal fade" tabindex="-1" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable ">
+        <div class="modal-content">
+            <div class="modal-header row align-items-center" style="background-color:powderblue;">
+                <div class="align-content-center">
+                    <h5 class="modal-title far fa-clipboard m-3" id="exampleModalLabel">發佈文章</h5>
+                </div>
+                <ul class="list-group list-group-horizontal m-2">
+                    <li class="list-group-item fas fa-edit">
+                        <a href="#">建立貼文</a>
+                    </li>
+                    <li class="list-group-item fas fa-hiking">
+                        <a href="#" class="">建立活動</a>
+                    </li>
+                    <li class="list-group-item fa fa-video-camera">
+                        <a href="#">直播視訊</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <textarea class="form-control" id="postText" rows="10" cols="50"></textarea>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group list-group-horizontal m-2">
+                    <li class="list-group-item">
+                        <a href="#">標註朋友</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">標註廠商</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">標註商品</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">標註xxx</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">加入圖片</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">加入影片</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">加入地圖</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#">加入xxx</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary fas fa-eye	">預覽貼文</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-success">發佈</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--post modal-->
+<!--personal Info modal-->
+<div id="personalInfoModal" class="modal fade" tabindex="-1" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable ">
+        <div class="modal-content">
+            <div class="modal-header row align-items-center" style="background-color:powderblue;">
+                <div class="align-content-center">
+                    <h4 class="modal-title" id="exampleModalLabel" style="margin-left:15px;">個人資訊</h4>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label class="control-label" for="input">Name</label>
+                        <i class="mtrl-select"></i>
+                        <br />
+                        <input type="text" id="input" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="input"><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4b0e262a22270b">[email&#160;protected]</a></label>
+                        <i class="mtrl-select"></i>
+                        <br />
+                        <input type="text" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="input">Phone No.</label>
+                        <i class="mtrl-select"></i>
+                        <br />
+                        <input type="text" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="input">Birthday</label>
+                        <i class="mtrl-select"></i>
+                        <br />
+                        <input type="text" required="required" />
+                    </div>
+                    <div class="form-radio">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" checked="checked" name="radio"><i class="check-box"></i>Male
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="radio"><i class="check-box"></i>Female
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="input">Address</label>
+                        <i class="mtrl-select"></i>
+                        <br />
+                        <input type="text" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="textarea">About Me</label>
+                        <i class="mtrl-select"></i>
+                        <textarea rows="4" id="textarea" placeholder="Write something about you." required="required"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-success">儲存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--personal Info modal-->
+<!--friend modal-->
+<div id="friendModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable ">
+        <div class="modal-content">
+            <div class="modal-header row align-items-center" style="background-color:powderblue;">
+                <div class="align-content-center">
+                    <h4 class="modal-title" id="exampleModalLabel" style="margin-left:15px;">好友</h4>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="central-meta">
+                    <div class="frnds">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="active" href="#frends" data-toggle="tab">My Friends</a>
+                                <span>55</span>
+                            </li>
+                            <li class="nav-item">
+                                <a class="" href="#frends-req" data-toggle="tab">Friend Requests</a>
+                                <span>60</span>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active fade show " id="frends">
+                                <ul class="nearby-contct">
+                                    <li>
+                                        <div class="nearly-pepls">
+                                            <figure>
+                                                <a href="time-line.html" title=""><img src="~/images/resources/friend-avatar9.jpg" alt=""></a>
+                                            </figure>
+                                            <div class="pepl-info">
+                                                <h4>
+                                                    <a href="time-line.html" title="">jhon kates</a>
+                                                </h4>
+                                                <span>ftv model</span>
+                                                <a href="#" title="" class="add-butn more-action" data-ripple="">unfriend</a>
+                                                <a href="#" title="" class="add-butn" data-ripple="">add friend</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="nearly-pepls">
+                                            <figure>
+                                                <a href="time-line.html" title=""><img src="~/images/resources/nearly1.jpg" alt=""></a>
+                                            </figure>
+                                            <div class="pepl-info">
+                                                <h4>
+                                                    <a href="time-line.html" title="">sophia Gate</a>
+                                                </h4>
+                                                <span>tv actresses</span>
+                                                <a href="#" title="" class="add-butn more-action" data-ripple="">unfriend</a>
+                                                <a href="#" title="" class="add-butn" data-ripple="">add friend</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="nearly-pepls">
+                                            <figure>
+                                                <a href="time-line.html" title=""><img src="~/images/resources/nearly5.jpg" alt=""></a>
+                                            </figure>
+                                            <div class="pepl-info">
+                                                <h4>
+                                                    <a href="time-line.html" title="">Amy watson</a>
+                                                </h4>
+                                                <span>Study in university</span>
+                                                <a href="#" title="" class="add-butn more-action" data-ripple="">unfriend</a>
+                                                <a href="#" title="" class="add-butn" data-ripple="">add friend</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="lodmore">
+                                    <button class="btn-view btn-load-more"></button>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="frends-req">
+                                <ul class="nearby-contct">
+                                    <li>
+                                        <div class="nearly-pepls">
+                                            <figure>
+                                                <a href="time-line.html" title=""><img src="~/images/resources/nearly5.jpg" alt=""></a>
+                                            </figure>
+                                            <div class="pepl-info">
+                                                <h4>
+                                                    <a href="time-line.html" title="">Amy watson</a>
+                                                </h4>
+                                                <span>ftv model</span>
+                                                <a href="#" title="" class="add-butn more-action" data-ripple="">delete Request</a>
+                                                <a href="#" title="" class="add-butn" data-ripple="">Confirm</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="nearly-pepls">
+                                            <figure>
+                                                <a href="time-line.html" title=""><img src="~/images/resources/nearly1.jpg" alt=""></a>
+                                            </figure>
+                                            <div class="pepl-info">
+                                                <h4>
+                                                    <a href="time-line.html" title="">sophia Gate</a>
+                                                </h4>
+                                                <span>ftv model</span>
+                                                <a href="#" title="" class="add-butn more-action" data-ripple="">delete Request</a>
+                                                <a href="#" title="" class="add-butn" data-ripple="">Confirm</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <button class="btn-view btn-load-more"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--friend modal-->
+<!--point modal-->
+<div id="pointModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable ">
+        <div class="modal-content">
+            <div class="modal-header row align-items-center" style="background-color:powderblue;">
+                <div class="align-content-center">
+                    <h4 class="modal-title" id="exampleModalLabel" style="margin-left:15px;">點數資訊</h4>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="notification-box">
+                    <ul>
+                        <li>
+                            <figure><img src="~/images/resources/friend-avatar.jpg" alt=""></figure>
+                            <div class="notifi-meta">
+                                <p>bob frank like your post</p>
+                                <span>30 mints ago</span>
+                            </div>
+                        </li>
+                        <li>
+                            <figure><img src="~/images/resources/friend-avatar2.jpg" alt=""></figure>
+                            <div class="notifi-meta">
+                                <p>Sarah Hetfield commented on your photo. </p>
+                                <span>1 hours ago</span>
+                            </div>
+                        </li>
+                        <li>
+                            <figure><img src="~/images/resources/friend-avatar2.jpg" alt=""></figure>
+                            <div class="notifi-meta">
+                                <p>Sarah Hetfield commented on your photo. </p>
+                                <span>1 hours ago</span>
+                            </div>
+                        </li>
+                        <li>
+                            <figure><img src="~/images/resources/friend-avatar2.jpg" alt=""></figure>
+                            <div class="notifi-meta">
+                                <p>Sarah Hetfield commented on your photo. </p>
+                                <span>1 hours ago</span>
+                            </div>
+                        </li>
+                        <li>
+                            <figure><img src="~/images/resources/friend-avatar2.jpg" alt=""></figure>
+                            <div class="notifi-meta">
+                                <p>Sarah Hetfield commented on your photo. </p>
+                                <span>1 hours ago</span>
+                            </div>
+                        </li>
+                        <li>
+                            <figure><img src="~/images/resources/friend-avatar2.jpg" alt=""></figure>
+                            <div class="notifi-meta">
+                                <p>Sarah Hetfield commented on your photo. </p>
+                                <span>1 hours ago</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--point modal-->
+<!--edit personal photo modal-->
+<div id="editpersonalphoto" class="modal fade" tabindex="-1" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable ">
+        <div class="modal-content">
+            <div class="modal-header row align-items-center" style="background-color:powderblue;">
+                <div class="align-content-center">
+                    <h4 class="modal-title" id="exampleModalLabel" style="margin-left:15px;">頭像修改</h4>
+                </div>
+            </div>
+            <form method="post" action="personalPage" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label class="cabinet">
+                                <figure class="img">
+                                    <img src="https://user.gadjian.com/static/images/personnel_boy.png" class="gambar img-responsive img-thumbnail" id="item-img-output" />
+                                    <figcaption><i class="fa fa-camera"></i></figcaption>
+                                </figure>
+                                <input type="file" class="item-img file center-block" name="perPhoto" />
+                                <input type="hidden" value="" id="changePersonalphoto" name="changePersonalphoto" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="throwimage()">取消</button>
+                    <button type="submit" class="btn btn-success">儲存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--edit personal photo modal-->
+<!--crop modal-->
+<div class="modal fade" id="cropImagePop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <?=multiLanguage( "Edit Foto" , "Edit Photo" )?>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div id="upload-demo" class="center-block"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="cancelCropBtn" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="cropImageBtn" class="btn btn-primary">Crop</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--crop modal-->
+<!--edit cover photo modal-->
+<div id="editcoverphoto" class="modal fade" tabindex="-1" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable ">
+        <div class="modal-content">
+            <div class="modal-header row align-items-center" style="background-color:powderblue;">
+                <div class="align-content-center">
+                    <h4 class="modal-title" id="exampleModalLabel" style="margin-left:15px;">封面修改</h4>
+                </div>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div>
+                            <label class="cabinet">
+                                <figure class="img">
+                                    <img src="~/images/resources/timeline-1.jpg" class="gambar img-responsive img-thumbnail" id="cover-img-output" />
+                                    <figcaption><i class="fa fa-camera"></i></figcaption>
+                                </figure>
+                                <input type="file" id="cover_img" class="item-img file center-block" />
+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="throwimage()">取消</button>
+                    <button type="button" id="save_cover" class="btn btn-success" data-dismiss="modal">儲存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--edit cover photo modal-->
+
+
+<script>
+    // Start upload preview image
+    var $uploadCrop,
+        tempFilename,
+        rawImg,
+        imageId,
+        flag,
+        x,
+        y;  //1:頭貼 2:背景
+
+    function readFile(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('.upload-demo').addClass('ready');
+
+                if ($('#editpersonalphoto').hasClass('show')) {
+                    flag = 1;
+                    x = 200;
+                    y = 200;
+                    $('#editpersonalphoto').modal('hide');
+                }
+
+                else {
+                    flag = 2;
+                    x = 136;
+                    y = 40;
+                    $('#editcoverphoto').modal('hide');
+                }
+
+                $('#cropImagePop').modal('show');
+                rawImg = e.target.result;
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            swal("Sorry - you're browser doesn't support the FileReader API");
+        }
+    }
+
+
+    $('#cropImagePop').on('shown.bs.modal', function () {
+        if (flag == 1) {
+            $('#upload-demo').croppie('destroy');
+            $uploadCrop = $('#upload-demo').croppie({
+                viewport: {
+                    width: 200,
+                    height: 200,
+                },
+                enforceBoundary: false,
+                enableExif: true
+            });
+        }
+        else {
+            $('#upload-demo').croppie('destroy');
+            $uploadCrop = $('#upload-demo').croppie({
+                viewport: {
+                    width: 272,
+                    height: 80,
+                },
+                boundary: {
+                    width: 408,
+                    height: 120,
+                },
+                enforceBoundary: false,
+                enableExif: true
+            });
+        }
+
+        $uploadCrop.croppie('bind', {
+            url: rawImg
+        }).then(function () {
+            console.log('jQuery bind complete');
+        });
+    });
+
+    //變更div內容觸發
+    $('.item-img').on('change', function () {
+        imageId = $(this).data('id');
+        tempFilename = $(this).val();
+        $('#cancelCropBtn').data('id', imageId);
+        readFile(this);
+    });
+
+    $('#cropImagePop').on('hidden.bs.modal', function () {
+        if (flag == 1)
+            $('#editpersonalphoto').modal('toggle');
+        else
+            $('#editcoverphoto').modal('toggle');
+
+    });
+
+    $('#cropImageBtn').on('click', function (ev) {
+        if (flag == 2) {
+            x *= 5;
+            y *= 5;
+        }
+        $uploadCrop.croppie('result', {
+            type: 'base64',
+            format: 'jpeg',
+            size: { width: x, height: y }
+        }).then(function (resp) {
+            if (flag == 1) {
+                $('#item-img-output').attr('src', resp);
+                $('#changePersonalphoto').attr('value', resp);
+                $('#cropImagePop').modal('toggle');
+                $('#editpersonalphoto').modal('toggle');
+            }
+            else {
+                $('#cover-img-output').attr('src', resp);
+                $('#cropImagePop').modal('toggle');
+                $('#editcoverphoto').modal('toggle');
+            }
+        });
+    });
+    // End upload preview image
+
+
+
+    $('#save_cover').on('click', function () {
+        var base64 = $("img[id='cover-img-output']").attr("src");
+        $.ajax({
+            url: "/Blog/editCoverphoto",
+            data: { "base64": base64 },
+            type: "post",
+            success: function () {
+                $('#coverphoto').attr('src', base64);
+            }
+        })
+    });
+
+
+</script>
+
